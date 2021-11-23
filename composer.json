@@ -1,0 +1,49 @@
+{
+	"name": "codekandis/hotdoc",
+	"description": "`codekandis/hotdoc` is a web applictaion to render and display folder structured markdown documents as HTML documents.",
+	"keywords": [
+		"php",
+		"hotdoc",
+		"markdown",
+		"html",
+		"documents"
+	],
+	"minimum-stability": "stable",
+	"prefer-stable": true,
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Christian Ramelow",
+			"email": "info@codekandis.net",
+			"homepage": "http://codekandis.net",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "info@codekandis.net",
+		"issues": "https://github.com/codekandis/hotdoc/issues",
+		"docs": "https://github.com/codekandis/hotdoc/blob/master/README.md",
+		"source": "https://github.com/codekandis/hotdoc/tree/master"
+	},
+	"require": {
+		"php": "^7.4"
+	},
+	"require-dev": {
+		"roave/security-advisories": "dev-master",
+		"codekandis/phpunit": "^3"
+	},
+	"autoload": {
+		"psr-4": {
+			"CodeKandis\\HotDoc\\": [
+				"src/"
+			]
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"CodeKandis\\HotDoc\\Tests\\": [
+				"tests/"
+			]
+		}
+	}
+}
