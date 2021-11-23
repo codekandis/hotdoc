@@ -26,7 +26,16 @@
 		"source": "https://github.com/codekandis/hotdoc/tree/master"
 	},
 	"require": {
-		"php": "^7.4"
+		"php": "^7.4",
+		"benjaminhoegh/parsedown-toc": "^1",
+		"codekandis/configurations": "^0",
+		"codekandis/constants-classes-translator": "^1",
+		"codekandis/converters": "^0",
+		"codekandis/sentry-client": "^1",
+		"codekandis/tiphy": "^0",
+		"codekandis/tiphy-sentry-client-integration": "^0",
+		"codekandis/validators": "^0",
+		"erusev/parsedown-extra": "^0"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-master",
@@ -35,7 +44,11 @@
 	"autoload": {
 		"psr-4": {
 			"CodeKandis\\HotDoc\\": [
+				"public",
 				"src/"
+			],
+			"CodeKandis\\HotDoc\\Configurations\\Plain\\": [
+				"config/"
 			]
 		}
 	},
