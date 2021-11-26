@@ -1,0 +1,36 @@
+<?php declare( strict_types = 1 );
+namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
+
+use CodeKandis\HotDoc\Frontend\Templates\Generators\BookIndexHtmlGenerator;
+use ParsedownToC;
+use function file_get_contents;
+
+$parsedownToC = new ParsedownToC();
+
+$contentContent = $parsedownToC->text(
+	file_get_contents(
+		sprintf(
+			'%s.md',
+			$this->data[ 'documentPath' ]
+		)
+	)
+);
+
+$sidebarLeftContent = sprintf(
+	'<h2>Books</h2>%s',
+	( new BookIndexHtmlGenerator( $this->data[ 'books' ] ) )
+		->generate()
+);
+
+$sidebarRightContent = sprintf(
+	'<h2>Table Of Contents</h2>%s',
+	$parsedownToC->contentsList()
+);
+
+$additionalFollowingLinkedStylesheets = [
+	'/assets/css/markdown.css'
+];
+
+require __DIR__ . '/Common/html-document-header.phtml';
+require __DIR__ . '/Common/html-document-body.phtml';
+require __DIR__ . '/Common/html-document-footer.phtml';
