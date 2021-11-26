@@ -1,0 +1,114 @@
+<?php declare( strict_types = 1 );
+namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
+?>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8"/>
+	<?php
+	if ( true === isset( $additionalPrecedingInlineStylesheets ) )
+	{
+		foreach ( $additionalPrecedingInlineStylesheets as $additionalPrecedingInlineStylesheet )
+		{
+			echo <<< END
+				<style>
+					{$additionalPrecedingInlineStylesheet}
+				</style>
+			END;
+		}
+	}
+	if ( true === isset( $additionalPrecedingLinkedStylesheets ) )
+	{
+		foreach ( $additionalPrecedingLinkedStylesheets as $additionalPrecedingLinkedStylesheet )
+		{
+			echo <<< END
+				<link rel="stylesheet" type="text/css" href="{$additionalPrecedingLinkedStylesheet}"/>
+			END;
+		}
+	}
+	?>
+	<link rel="stylesheet" type="text/css" href="/assets/css/core.css"/>
+	<?php
+	if ( true === isset( $additionalFollowingLinkedStylesheets ) )
+	{
+		foreach ( $additionalFollowingLinkedStylesheets as $additionalFollowingLinkedStylesheet )
+		{
+			echo <<< END
+				<link rel="stylesheet" type="text/css" href="{$additionalFollowingLinkedStylesheet}"/>
+			END;
+		}
+	}
+	if ( true === isset( $additionalFollowingInlineStylesheets ) )
+	{
+		foreach ( $additionalFollowingInlineStylesheets as $additionalFollowingInlineStylesheet )
+		{
+			echo <<< END
+				<style>
+					{$additionalFollowingInlineStylesheet}
+				</style>
+			END;
+		}
+	}
+	if ( true === isset( $additionalPrecedingInlineJavaScripts ) )
+	{
+		foreach ( $additionalPrecedingInlineJavaScripts as $additionalPrecedingInlineJavaScript )
+		{
+			echo <<< END
+				<script type="text/javascript">
+					{$additionalPrecedingInlineJavaScript}
+				</script>
+			END;
+		}
+	}
+	if ( true === isset( $additionalPrecedingLinkedJavaScripts ) )
+	{
+		foreach ( $additionalPrecedingLinkedJavaScripts as $additionalPrecedingLinkedJavaScript )
+		{
+			echo <<< END
+				<script type="text/javascript" src="{$additionalPrecedingLinkedJavaScript}"></script>
+			END;
+		}
+	}
+	if ( true === isset( $additionalPrecedingLinkedModularJavaScripts ) )
+	{
+		foreach ( $additionalPrecedingLinkedModularJavaScripts as $additionalPrecedingLinkedModularJavaScript )
+		{
+			echo <<< END
+				<script type="module" src="{$additionalPrecedingLinkedModularJavaScript}"></script>
+			END;
+		}
+	}
+	?>
+	<script type="module" src="/assets/js/application/Core.js"></script>
+	<?php
+	if ( true === isset( $additionalFollowingLinkedJavaScripts ) )
+	{
+		foreach ( $additionalFollowingLinkedJavaScripts as $additionalFollowingLinkedJavaScript )
+		{
+			echo <<< END
+				<script type="text/javascript" src="{$additionalFollowingLinkedJavaScript}"></script>
+			END;
+		}
+	}
+	if ( true === isset( $additionalFollowingLinkedModularJavaScripts ) )
+	{
+		foreach ( $additionalFollowingLinkedModularJavaScripts as $additionalFollowingLinkedModularJavaScript )
+		{
+			echo <<< END
+				<script type="module" src="{$additionalFollowingLinkedModularJavaScript}"></script>
+			END;
+		}
+	}
+	if ( true === isset( $additionalFollowingInlineJavaScripts ) )
+	{
+		foreach ( $additionalFollowingInlineJavaScripts as $additionalFollowingInlineJavaScript )
+		{
+			echo <<< END
+				<script type="text/javascript">
+					{$additionalFollowingInlineJavaScript}
+				</script>
+			END;
+		}
+	}
+	?>
+</head>

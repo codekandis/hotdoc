@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+@import './fonts.css';
+
+:root {
+	--base-font-family: 'Noto Sans';
+	--code-font-family: 'Fira Code';
+	--base-font-size: 10pt;
+	--page-top-margin: 30px;
+	--page-bottom-margin: 30px;
+	--sidebar-left-width: 300px;
+	--sidebar-right-width: 300px;
+	--sidebar-padding: 20px;
+	--document-padding: 50px;
+	--list-indent: 10px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: var(--base-font-family);
+}
+
+body {
+	color: #404040;
+	font-size: var(--base-font-size);
+}
+
+a {
+	color: #00a0ff;
+	font-style: normal;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ffa000;
+}
+
+#page > .sidebar > .content,
+#page > .document > .content {
+	margin-top: var(--page-top-margin);
+	margin-bottom: var(--page-bottom-margin);
+	overflow-y: auto;
+}
+
+#page > .sidebar {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	overflow-y: auto;
+}
+
+#page > .sidebar > .content {
+	padding-left: var(--sidebar-padding);
+	padding-right: var(--sidebar-padding);
+	font-size: calc(var(--base-font-size) + 2pt);
+}
+
+#page > .sidebar > .content h2 {
+	margin-top: 6px;
+	margin-bottom: 20px;
+	padding-bottom: 2px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+#page > .sidebar > .content ul {
+	list-style: none;
+}
+
+#page > .sidebar > .content ul li a {
+	display: block;
+}
+
+#page > .sidebar > .content ul ul {
+	padding-left: var(--list-indent);
+}
+
+#page > .sidebar > .content ul li:not(:first-child),
+#page > .sidebar > .content ul ul li {
+	margin-top: 0.4em;
+}
+
+#page > .sidebar.left {
+	left: 0;
+	width: var(--sidebar-left-width);
+	background: #404040;
+}
+
+#page > .sidebar > .content h2 {
+	border-bottom-color: #a0a0a0;
+}
+
+#page > .sidebar.left > .content > ul > li > a {
+	font-size: calc(var(--base-font-size) + 4pt);
+}
+
+#page > .sidebar.left > .content > ul > li:not(:first-child) {
+	margin-top: 30px;
+}
+
+#page > .sidebar.left > .content {
+	font-style: normal;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+#page > .sidebar.left > .content a {
+	color: #ffffff;
+}
+
+#page > .sidebar.left > .content a:hover {
+	color: #ffa000;
+}
+
+#page > .sidebar.right {
+	right: 0;
+	width: var(--sidebar-right-width);
+}
+
+#page > .sidebar > .content h2 {
+	border-bottom-color: #e8e8e8;
+}
+
+#page > .document {
+	margin: 0 var(--sidebar-right-width) 0 var(--sidebar-left-width);
+	width: calc(100vw - var(--sidebar-left-width) - var(--sidebar-right-width));
+}
+
+#page > .document > .content {
+	box-sizing: border-box;
+	padding-left: var(--document-padding);
+	padding-right: var(--document-padding);
+}

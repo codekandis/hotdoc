@@ -1,0 +1,260 @@
+@charset "utf-8";
+
+#page > .document > .content * {
+	margin: 0;
+	padding: 0;
+	line-height: 1.3em;
+	font-family: inherit;
+	font-size: var(--base-font-size);
+	letter-spacing: 0.05em;
+}
+
+#page > .document > .content h1,
+#page > .document > .content h2,
+#page > .document > .content h3,
+#page > .document > .content h4,
+#page > .document > .content h5,
+#page > .document > .content h6,
+#page > .document > .content p,
+#page > .document > .content ol,
+#page > .document > .content ul {
+	margin-bottom: 1.3em;
+}
+
+#page > .document > .content ol ol,
+#page > .document > .content ol ul,
+#page > .document > .content ul ul,
+#page > .document > .content ul ol {
+	margin-bottom: 0;
+}
+
+#page > .document > .content h1,
+#page > .document > .content h2,
+#page > .document > .content h3,
+#page > .document > .content h4,
+#page > .document > .content h5,
+#page > .document > .content h6 {
+	font-weight: bold;
+}
+
+#page > .document > .content h1 .header-anchor,
+#page > .document > .content h2 .header-anchor,
+#page > .document > .content h3 .header-anchor,
+#page > .document > .content h4 .header-anchor,
+#page > .document > .content h5 .header-anchor,
+#page > .document > .content h6 .header-anchor {
+	color: inherit;
+}
+
+#page > .document > .content h1,
+#page > .document > .content h2 {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #e8e8e8;
+}
+
+#page > .document > .content h1 {
+	font-size: calc(var(--base-font-size) + 12pt);
+}
+
+#page > .document > .content h2 {
+	font-size: calc(var(--base-font-size) + 8pt);
+}
+
+#page > .document > .content h3 {
+	font-size: calc(var(--base-font-size) + 6pt);
+}
+
+#page > .document > .content h4 {
+	font-size: calc(var(--base-font-size) + 4pt);
+}
+
+#page > .document > .content h5 {
+	font-size: calc(var(--base-font-size) + 2pt);
+}
+
+#page > .document > .content h6 {
+	font-size: var(--base-font-size);
+}
+
+#page > .document > .content em {
+	font-style: italic;
+}
+
+#page > .document > .content strong {
+	font-weight: bold;
+}
+
+#page > .document > .content s {
+	text-decoration: line-through;
+}
+
+#page > .document > .content a:not(.header-anchor) {
+	color: #00a0ff;
+}
+
+#page > .document > .content a:not(.header-anchor):hover {
+	color: #ffa000;
+}
+
+#page > .document > .content ol,
+#page > .document > .content ul {
+	padding-left: 2em;
+}
+
+#page > .document > .content ul > li > :last-child,
+#page > .document > .content ol > li > :last-child {
+}
+
+#page > .document > .content ol {
+	list-style-type: decimal;
+}
+
+#page > .document > .content ul {
+	list-style-type: disc;
+}
+
+#page > .document > .content dl {
+	margin-bottom: 1.3em;
+}
+
+#page > .document > .content dl > dt {
+	font-weight: bold;
+	font-style: italic;
+}
+
+#page > .document > .content dl > dd {
+	margin: 0.3em 1.3em 1.3em 1.3em;
+}
+
+#page > .document > .content code {
+	font-family: var(--code-font-family);
+	font-size: calc(var(--base-font-size) - 0.5pt);
+	color: #404040;
+	background-color: #f4f4f4;
+}
+
+#page > .document > .content p > code {
+	padding: 0 3px;
+}
+
+#page > .document > .content pre {
+	margin-bottom: 1.3em;
+	padding: 0.3em 0.5em;
+	background-color: #f4f4f4;
+	overflow-x: auto;
+}
+
+#page > .document > .content pre > code {
+	background-color: transparent;
+}
+
+#page > .document > .content table {
+	margin-bottom: 1.3em;
+	border-collapse: collapse;
+}
+
+#page > .document > .content table > thead > tr > th,
+#page > .document > .content table > tbody > tr > td {
+	padding: 0.3em 0.5em;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #c0c0c0;
+}
+
+#page > .document > .content table > thead > tr {
+	background-color: #e8e8e8;
+}
+
+#page > .document > .content table > thead > tr > th {
+	font-weight: bold;
+	text-align: center !important;
+}
+
+#page > .document > .content table > tbody > tr:hover {
+	background-color: rgba(255, 160, 0, 0.1) !important;
+}
+
+#page > .document > .content table > tbody > tr:nth-child(even) {
+	background-color: rgba(255, 160, 0, 0.04);
+}
+
+#page > .document > .content blockquote {
+	margin-bottom: 1.3em;
+	padding: 0.3em 0.5em;
+	border-left-style: solid;
+	border-left-width: 3px;
+	border-left-color: #e8e8e8;
+}
+
+#page > .document > .content blockquote > :last-child {
+	margin-bottom: 0;
+}
+
+#page > .document > .content hr {
+	margin-bottom: 1.3em;
+	border-style: none none solid none;
+	border-width: 1px;
+	border-bottom-color: #e8e8e8;
+}
+
+#page > .document > .content .toolbar,
+#page > .document > .content [data-filter-container] {
+	background-color: #fafafa;
+	border-width: 1px;
+	border-color: #f4f4f4;
+}
+
+#page > .document > .content .toolbar {
+	padding: 3px 0 2px 0;
+	font-size: 7pt;
+	border-style: solid solid none solid;
+}
+
+#page > .document > .content .toolbar .action {
+	padding: 0 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+#page > .document > .content .toolbar .action .icon {
+	margin-right: 3px;
+	opacity: 0.5;
+}
+
+#page > .document > .content .toolbar .action:hover .icon {
+	opacity: 1;
+}
+
+#page > .document > .content .toolbar .action .title {
+	position: relative;
+	top: -2px;
+	color: #808080;
+}
+
+#page > .document > .content .toolbar .action:hover .title {
+	color: #ffa000;
+}
+
+#page > .document > .content .tableWrapper {
+	display: inline-block;
+}
+
+#page > .document > .content [data-filter-container] {
+	padding: 2px 8px 3px 3px;
+	border-style: none solid;
+}
+
+#page > .document > .content [data-filter-container].hidden {
+	display: none;
+}
+
+#page > .document > .content [data-filter-container] > [data-filter-input] {
+	display: block;
+	padding: 2px;
+	width: 100%;
+	max-width: 100%;
+	height: 15px;
+	/*line-height: 14px;*/
+	letter-spacing: 0.05em;
+}
