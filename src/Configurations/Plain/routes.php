@@ -7,10 +7,10 @@ use CodeKandis\Tiphy\Http\Requests\Methods;
 return [
 	'baseRoute' => '',
 	'routes'    => [
-		'^/$'                          => [
+		'^/$'                                                                => [
 			Methods::GET => Frontend\Get\ShowChapterAction::class
 		],
-		'^/books/(?<book>.+?)(:?/(?<chapter>.+))$' => [
+		'^/books/(?<canonicalBookName>.+?)(:?/(?<canonicalChapterName>.+))$' => [
 			Methods::GET => Frontend\Get\ShowChapterAction::class
 		]
 	]

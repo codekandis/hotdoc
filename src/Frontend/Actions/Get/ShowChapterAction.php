@@ -20,8 +20,8 @@ class ShowChapterAction extends AbstractAction
 	public function execute(): void
 	{
 		$inputData        = $this->getInputData();
-		$requestedBook    = $inputData[ 'book' ];
-		$requestedChapter = $inputData[ 'chapter' ];
+		$requestedBook    = $inputData[ 'canonicalBookName' ];
+		$requestedChapter = $inputData[ 'canonicalChapterName' ];
 
 		$sanitizedRequestedChapter = $requestedChapter;
 		while ( false !== strpos( '..', $sanitizedRequestedChapter ) )
