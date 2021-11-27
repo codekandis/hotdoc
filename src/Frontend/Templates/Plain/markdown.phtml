@@ -1,7 +1,9 @@
 <?php declare( strict_types = 1 );
 namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 
-use CodeKandis\HotDoc\Frontend\Templates\Generators\BookIndexHtmlGenerator;
+use CodeKandis\HotDoc\Frontend\Templates\Generators\BookSelectHtmlGenerator;
+use CodeKandis\JsonCodec\JsonEncoder;
+use CodeKandis\JsonCodec\JsonEncoderOptions;
 use ParsedownToC;
 use function file_get_contents;
 
@@ -17,15 +19,37 @@ $contentContent = $parsedownToC->text(
 );
 
 $sidebarLeftContent = sprintf(
-	'<h2>Books</h2>%s',
-	( new BookIndexHtmlGenerator( $this->data[ 'books' ] ) )
+	<<<END
+		<h2>Books</h2>
+		%s
+		<div></div>
+	END,
+	( new BookSelectHtmlGenerator( $this->data[ 'books' ] ) )
 		->generate()
 );
 
 $sidebarRightContent = sprintf(
-	'<h2>Table Of Contents</h2>%s',
+	<<<END
+		<h2>Table Of Contents</h2>
+		%s
+	END,
 	$parsedownToC->contentsList()
 );
+
+$booksJsonData = ( new JsonEncoder() )
+	->encode(
+		$this->data[ 'books' ],
+		new JsonEncoderOptions( JsonEncoderOptions::PRETTY_PRINT )
+	);
+
+$additionalFollowingLinkedModularJavaScripts = [
+	'/assets/js/application/Pages/ShowBook.js'
+];
+$additionalPrecedingInlineJavaScripts        = [
+	<<<END
+		const books = {$booksJsonData};
+	END
+];
 
 $additionalFollowingLinkedStylesheets = [
 	'/assets/css/markdown.css'
