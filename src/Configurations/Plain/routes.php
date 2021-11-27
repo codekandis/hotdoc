@@ -8,10 +8,10 @@ return [
 	'baseRoute' => '',
 	'routes'    => [
 		'^/$'                          => [
-			Methods::GET => Frontend\Get\ShowDocumentAction::class
+			Methods::GET => Frontend\Get\ShowChapterAction::class
 		],
 		'^/books/(?<book>.+?)(:?/(?<chapter>.+))$' => [
-			Methods::GET => Frontend\Get\ShowDocumentAction::class
+			Methods::GET => Frontend\Get\ShowChapterAction::class
 		]
 	]
 ];

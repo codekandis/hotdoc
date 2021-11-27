@@ -11,11 +11,11 @@ use function str_replace;
 use function strpos;
 
 /**
- * Represents the action to show a document.
+ * Represents the action to show a chapter.
  * @package codekandis/hotdoc
  * @author Christian Ramelow <info@codekandis.net>
  */
-class ShowDocumentAction extends AbstractAction
+class ShowChapterAction extends AbstractAction
 {
 	public function execute(): void
 	{
