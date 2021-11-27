@@ -47,7 +47,7 @@ class ShowDocumentAction extends AbstractAction
 				'documentPath' => $documentPath
 			],
 			null,
-			'markdown.phtml'
+			'show-chapter.phtml'
 		) )
 			->respond();
 	}
