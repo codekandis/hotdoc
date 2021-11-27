@@ -7,6 +7,7 @@ use CodeKandis\HotDoc\Frontend\Actions\AbstractAction;
 use CodeKandis\Tiphy\Http\Responses\HtmlTemplateResponder;
 use CodeKandis\Tiphy\Http\Responses\StatusCodes;
 use ReflectionException;
+use function sprintf;
 use function str_replace;
 use function strpos;
 
@@ -23,6 +24,12 @@ class ShowChapterAction extends AbstractAction
 		$requestedBook    = $inputData[ 'canonicalBookName' ];
 		$requestedChapter = $inputData[ 'canonicalChapterName' ];
 
+		$sanitizedRequestedBook = $requestedBook;
+		while ( false !== strpos( '..', $sanitizedRequestedBook ) )
+		{
+			$sanitizedRequestedBook = str_replace( '..', '', $sanitizedRequestedBook );
+		}
+
 		$sanitizedRequestedChapter = $requestedChapter;
 		while ( false !== strpos( '..', $sanitizedRequestedChapter ) )
 		{
@@ -34,7 +41,7 @@ class ShowChapterAction extends AbstractAction
 			$this->getFrontendConfigurationRegistry()
 				 ->getBooksConfiguration()
 				 ->getBooksPath(),
-			$requestedBook,
+			$sanitizedRequestedBook,
 			$sanitizedRequestedChapter
 		);
 
