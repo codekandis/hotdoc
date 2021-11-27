@@ -13,6 +13,12 @@
 	--sidebar-padding: 20px;
 	--document-padding: 50px;
 	--list-indent: 10px;
+	--codekandis-color-orange: rgba(255, 160, 0, 1);
+	--codekandis-color-blue: rgba(0, 160, 255, 1);
+	--codekandis-color-light-gray: rgba(208, 208, 208, 1);
+	--codekandis-color-gray: rgba(160, 160, 160);
+	--codekandis-color-dark-gray: rgba(128, 128, 128, 1);
+	--codekandis-color-darker-gray: rgba(64, 64, 64, 1);
 }
 
 * {
@@ -22,18 +28,18 @@
 }
 
 body {
-	color: #404040;
+	color: var(--codekandis-color-darker-gray);
 	font-size: var(--base-font-size);
 }
 
 a {
-	color: #00a0ff;
+	color: var(--codekandis-color-blue);
 	font-style: normal;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #ffa000;
+	color: var(--codekandis-color-orange);
 }
 
 #page > .sidebar > .content,
@@ -88,14 +94,18 @@ a:hover {
 }
 
 #page > .sidebar > .content h2 {
-	border-bottom-color: #a0a0a0;
+	border-bottom-color: var(--codekandis-color-gray);
 }
 
-#page > .sidebar.left > .content > ul > li > a {
-	font-size: calc(var(--base-font-size) + 4pt);
+#page > .sidebar.left > .content > select {
+	display: block;
+	margin-bottom: 20px;
+	padding: 3px 2px 3px 2px;
+	width: 100%;
+	font-size: calc(var(--base-font-size) + 2pt);
 }
 
-#page > .sidebar.left > .content > ul > li:not(:first-child) {
+#page > .sidebar.left > .content > div > ul > li:not(:first-child) {
 	margin-top: 30px;
 }
 
@@ -105,12 +115,20 @@ a:hover {
 	color: #ffffff;
 }
 
-#page > .sidebar.left > .content a {
+#page > .sidebar.left > .content > div > ul li a {
+	padding-right: 5px;
 	color: #ffffff;
+	border-right-style: solid;
+	border-right-width: 2px;
+	border-right-color: transparent;
 }
 
-#page > .sidebar.left > .content a:hover {
-	color: #ffa000;
+#page > .sidebar.left > .content > div > ul li a:hover {
+	color: var(--codekandis-color-orange);
+}
+
+#page > .sidebar.left > .content > div > ul li a[data-is-selected='true'] {
+	border-right-color: var(--codekandis-color-orange);
 }
 
 #page > .sidebar.right {
@@ -118,8 +136,14 @@ a:hover {
 	width: var(--sidebar-right-width);
 }
 
-#page > .sidebar > .content h2 {
-	border-bottom-color: #e8e8e8;
+#page > .sidebar.right > .content {
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: var(--codekandis-color-light-gray);
+}
+
+#page > .sidebar.right > .content h2 {
+	border-bottom-color: var(--codekandis-color-light-gray);
 }
 
 #page > .document {
