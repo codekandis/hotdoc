@@ -132,8 +132,6 @@ class BoolToCustomizedStringBiDirectionalConverter extends AbstractConverter imp
 			throw $this->getInvalidValueException( $value, ValidValuesRegularExpressions::REGEX_BOOL_STRING );
 		}
 
-		return $this->customizedStrings[ 0 ] === $value
-			? false
-			: true;
+		return $this->customizedStrings[ 0 ] !== $value;
 	}
 }
