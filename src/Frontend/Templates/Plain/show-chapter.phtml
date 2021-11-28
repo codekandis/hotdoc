@@ -1,11 +1,31 @@
 <?php declare( strict_types = 1 );
 namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 
+use CodeKandis\HotDoc\Environment\Entities\BookEntityInterface;
+use CodeKandis\HotDoc\Environment\Entities\ChapterEntityInterface;
+use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
 use CodeKandis\HotDoc\Frontend\Templates\Generators\BookSelectHtmlGenerator;
+use CodeKandis\HotDoc\Frontend\Templates\Generators\ChapterListHtmlGenerator;
 use CodeKandis\JsonCodec\JsonEncoder;
 use CodeKandis\JsonCodec\JsonEncoderOptions;
 use ParsedownToC;
 use function file_get_contents;
+use function sprintf;
+
+/**
+ * @var BookEntityCollectionInterface $books
+ */
+$books = $this->data[ 'books' ];
+
+/**
+ * @var BookEntityInterface $requestedBook
+ */
+$requestedBook = $this->data[ 'requestedBook' ];
+
+/**
+ * @var ChapterEntityInterface $requestedChapter
+ */
+$requestedChapter = $this->data[ 'requestedChapter' ];
 
 $parsedownToC = new ParsedownToC();
 
@@ -22,9 +42,11 @@ $sidebarLeftContent = sprintf(
 	<<<END
 		<h2>Books</h2>
 		%s
-		<div></div>
+		%s
 	END,
-	( new BookSelectHtmlGenerator( $this->data[ 'books' ] ) )
+	( new BookSelectHtmlGenerator( $books, $requestedBook ) )
+		->generate(),
+	( new ChapterListHtmlGenerator( $requestedBook->getChapters(), $requestedChapter ) )
 		->generate()
 );
 
@@ -38,7 +60,7 @@ $sidebarRightContent = sprintf(
 
 $booksJsonData = ( new JsonEncoder() )
 	->encode(
-		$this->data[ 'books' ],
+		$books,
 		new JsonEncoderOptions( JsonEncoderOptions::PRETTY_PRINT )
 	);
 

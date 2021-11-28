@@ -4,6 +4,7 @@ namespace CodeKandis\HotDoc\Environment\Entities\Collections;
 use CodeKandis\Entities\Collections\EntityCollectionInterface;
 use CodeKandis\Entities\EntityInterface;
 use CodeKandis\HotDoc\Environment\Entities\BookEntityInterface;
+use CodeKandis\HotDoc\Environment\Entities\ChapterEntityInterface;
 
 /**
  * Represents the interface of any collection of book entities.
@@ -24,4 +25,18 @@ interface BookEntityCollectionInterface extends EntityCollectionInterface
 	 * @return BookEntityInterface The book to get.
 	 */
 	public function offsetGet( $index ): EntityInterface;
+
+	/**
+	 * Searches for a book by its canonical book name.
+	 * @param string $canonicalBookName The canonical book name.
+	 * @return ?BookEntityInterface The book if found, otherwise null.
+	 */
+	public function findBookByCanonicalBookName( string $canonicalBookName ): ?BookEntityInterface;
+
+	/**
+	 * Searches for a chapter by its canonical chapter name.
+	 * @param string $canonicalChapterName The canonical chapter name.
+	 * @return ?ChapterEntityInterface The chapter if found, otherwise null.
+	 */
+	public function findChapterByCanonicalChapterName( string $canonicalChapterName ): ?ChapterEntityInterface;
 }
