@@ -4,6 +4,7 @@ namespace CodeKandis\HotDoc\Frontend\Actions\Get;
 use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
 use CodeKandis\HotDoc\Environment\Io\BooksDirectoryReader;
 use CodeKandis\HotDoc\Frontend\Actions\AbstractAction;
+use CodeKandis\Tiphy\Data\ArrayAccessor;
 use CodeKandis\Tiphy\Http\Responses\HtmlTemplateResponder;
 use CodeKandis\Tiphy\Http\Responses\StatusCodes;
 use ReflectionException;
@@ -20,17 +21,17 @@ class ShowChapterAction extends AbstractAction
 {
 	public function execute(): void
 	{
-		$inputData        = $this->getInputData();
-		$requestedBook    = $inputData[ 'canonicalBookName' ];
-		$requestedChapter = $inputData[ 'canonicalChapterName' ];
+		$inputData                     = $this->getInputData();
+		$requestedCanonicalBookName    = $inputData[ 'canonicalBookName' ];
+		$requestedCanonicalChapterName = $inputData[ 'canonicalChapterName' ];
 
-		$sanitizedRequestedBook = $requestedBook;
+		$sanitizedRequestedBook = $requestedCanonicalBookName;
 		while ( false !== strpos( '..', $sanitizedRequestedBook ) )
 		{
 			$sanitizedRequestedBook = str_replace( '..', '', $sanitizedRequestedBook );
 		}
 
-		$sanitizedRequestedChapter = $requestedChapter;
+		$sanitizedRequestedChapter = $requestedCanonicalChapterName;
 		while ( false !== strpos( '..', $sanitizedRequestedChapter ) )
 		{
 			$sanitizedRequestedChapter = str_replace( '..', '', $sanitizedRequestedChapter );
@@ -45,14 +46,25 @@ class ShowChapterAction extends AbstractAction
 			$sanitizedRequestedChapter
 		);
 
+		$books = $this->readBooks();
+		$data  = [
+			'books'            => $books,
+			'requestedBook'    => $books->findBookByCanonicalBookName( $requestedCanonicalBookName ),
+			'requestedChapter' => $books->findChapterByCanonicalChapterName(
+				sprintf(
+					'%s/%s',
+					$requestedCanonicalBookName,
+					$requestedCanonicalChapterName
+				)
+			),
+			'documentPath'     => $documentPath
+		];
+
 		( new HtmlTemplateResponder(
 			$this->getFrontendConfigurationRegistry()
 				 ->getTemplateRendererConfiguration(),
 			StatusCodes::OK,
-			[
-				'books'        => $this->readBooks(),
-				'documentPath' => $documentPath
-			],
+			new ArrayAccessor( $data ),
 			null,
 			'show-chapter.phtml'
 		) )
