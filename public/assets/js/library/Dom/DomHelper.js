@@ -53,7 +53,7 @@ class DomHelper extends StaticBaseClass
 		const container     = document.createElement( 'div' );
 		container.innerHTML = htmlString.trim();
 
-		return container;
+		return container.childNodes;
 	}
 
 	static remove( selector )
@@ -178,6 +178,22 @@ class DomHelper extends StaticBaseClass
 				DomHelper.insert( element, insertion.cloneNode( true ), position );
 			}
 		);
+	}
+
+	static replaceWith( element, replacement )
+	{
+		element.parentNode.replaceChild( replacement, element );
+	}
+
+	static replaceWithAll( element, replacements )
+	{
+		let lastNode = replacements[ 0 ];
+		DomHelper.replaceWith( element, replacements[ 0 ] );
+		while ( 0 < replacements.length )
+		{
+			DomHelper.insertAfter( lastNode, replacements[ 0 ] );
+			lastNode = lastNode.nextSibling;
+		}
 	}
 }
 
