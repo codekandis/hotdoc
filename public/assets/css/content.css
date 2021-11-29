@@ -137,7 +137,6 @@
 
 #page > .document > .content pre {
 	margin-bottom: var(--base-line-height);
-	padding: 0.3em 0.5em;
 	background-color: #f4f4f4;
 	overflow-x: auto;
 }
@@ -146,34 +145,63 @@
 	background-color: transparent;
 }
 
-#page > .document > .content table {
+#page > .document > .content table:not(.hljs-ln) {
 	margin-bottom: var(--base-line-height);
 	border-collapse: collapse;
 }
 
-#page > .document > .content table > thead > tr > th,
-#page > .document > .content table > tbody > tr > td {
+#page > .document > .content table:not(.hljs-ln) > thead > tr > th,
+#page > .document > .content table:not(.hljs-ln) > tbody > tr > td {
 	padding: 0.3em 0.5em;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #c0c0c0;
 }
 
-#page > .document > .content table > thead > tr {
+#page > .document > .content table:not(.hljs-ln) > thead > tr {
 	background-color: var(--codekandis-color-light-gray);
 }
 
-#page > .document > .content table > thead > tr > th {
+#page > .document > .content table:not(.hljs-ln) > thead > tr > th {
 	font-weight: bold;
 	text-align: center !important;
 }
 
-#page > .document > .content table > tbody > tr:hover {
+#page > .document > .content table:not(.hljs-ln) > tbody > tr:hover {
 	background-color: rgba(255, 160, 0, 0.1) !important;
 }
 
-#page > .document > .content table > tbody > tr:nth-child(even) {
+#page > .document > .content table:not(.hljs-ln) > tbody > tr:nth-child(even) {
 	background-color: rgba(255, 160, 0, 0.04);
+}
+
+#page > .document > .content .hljs {
+	padding: 0 calc(var(--base-line-height) - 0.5em) 0 0;
+}
+
+#page > .document > .content .hljs-ln .hljs-ln-line.hljs-ln-numbers .hljs-ln-n {
+	padding-left: calc(var(--base-line-height) - 0.5em);
+	padding-right: calc(var(--base-line-height) - 0.8em);
+	text-align: right;
+	color: var(--codekandis-color-gray);
+	background-color: var(--codekandis-color-lighter-gray);
+	border-right-style: solid;
+	border-width: 1px;
+	border-color: var(--codekandis-color-light-gray);
+}
+
+#page > .document > .content .hljs-ln tr:first-child .hljs-ln-line.hljs-ln-numbers .hljs-ln-n,
+#page > .document > .content .hljs-ln tr:first-child .hljs-ln-line.hljs-ln-code {
+	padding-top: calc(var(--base-line-height) - 0.8em);
+}
+
+#page > .document > .content .hljs-ln tr:last-child .hljs-ln-line.hljs-ln-numbers .hljs-ln-n,
+#page > .document > .content .hljs-ln tr:last-child .hljs-ln-line.hljs-ln-code {
+	padding-bottom: calc(var(--base-line-height) - 0.8em);
+}
+
+#page > .document > .content .hljs-ln .hljs-ln-line.hljs-ln-numbers {
+	padding-right: 15px;
 }
 
 #page > .document > .content blockquote {
