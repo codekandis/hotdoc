@@ -8,6 +8,9 @@ return [
 	'baseRoute' => '',
 	'routes'    => [
 		'^/$'                                                              => [],
+		'^/books/(?<canonicalBookName>[^/]+)$'                             => [
+			Methods::GET => Frontend\Get\ShowBookAction::class
+		],
 		'^/books/(?<canonicalBookName>[^/]+)/(?<canonicalChapterName>.+)$' => [
 			Methods::GET => Frontend\Get\ShowChapterAction::class
 		]
