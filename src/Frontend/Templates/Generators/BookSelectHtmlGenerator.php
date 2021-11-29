@@ -42,7 +42,12 @@ class BookSelectHtmlGenerator implements HtmlGeneratorInterface
 	private function generateSelectOptions(): string
 	{
 		$generatedBookItems = [
-			'<option value="" disabled>Select a book ...</option>'
+			sprintf(
+				'<option value="" disabled%s>Select a book ...</option>',
+				null === $this->currentBook
+					? ' selected'
+					: ''
+			)
 		];
 
 		$boolToStringConverter = new BoolToCustomizedStringBiDirectionalConverter(
@@ -51,7 +56,7 @@ class BookSelectHtmlGenerator implements HtmlGeneratorInterface
 		);
 		foreach ( $this->books as $book )
 		{
-			$isSelected           = $book->getCanonicalName() === $this->currentBook->getCanonicalName();
+			$isSelected           = $book === $this->currentBook;
 			$generatedBookItems[] = sprintf(
 				'<option value="%s" data-selected-state="%s"%s>%s</option>',
 				$book->getCanonicalName(),
@@ -66,7 +71,8 @@ class BookSelectHtmlGenerator implements HtmlGeneratorInterface
 		return 0 === count( $generatedBookItems )
 			? ''
 			: sprintf(
-				'<select data-is-book-list>%s</select>',
+				'<select data-purpose="%s">%s</select>',
+				ElementPurposes::BOOK_SELECTOR,
 				implode( '', $generatedBookItems )
 			);
 	}

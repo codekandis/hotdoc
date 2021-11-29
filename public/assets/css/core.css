@@ -99,7 +99,7 @@ a:hover {
 	border-bottom-color: var(--codekandis-color-gray);
 }
 
-#page > .sidebar.left > .content > select {
+#page > .sidebar.left > .content [data-purpose='BOOK_SELECTOR'] {
 	display: block;
 	margin-bottom: 20px;
 	padding: 3px 2px 3px 2px;
@@ -107,7 +107,7 @@ a:hover {
 	font-size: calc(var(--base-font-size) + 2pt);
 }
 
-#page > .sidebar.left > .content > ul > li:not(:first-child) {
+#page > .sidebar.left > .content [data-purpose='CHAPTER_SELECTOR'] > li:not(:first-child) {
 	margin-top: 30px;
 }
 
@@ -117,7 +117,7 @@ a:hover {
 	color: #ffffff;
 }
 
-#page > .sidebar.left > .content > ul li a {
+#page > .sidebar.left > .content [data-purpose='CHAPTER_SELECTOR'] li a {
 	padding-right: 5px;
 	color: #ffffff;
 	border-right-style: solid;
@@ -125,11 +125,11 @@ a:hover {
 	border-right-color: transparent;
 }
 
-#page > .sidebar.left > .content > ul li a:hover {
+#page > .sidebar.left > .content [data-purpose='CHAPTER_SELECTOR'] li a:hover {
 	color: var(--codekandis-color-orange);
 }
 
-#page > .sidebar.left > .content > ul li a[data-selected-state='SELECTED'] {
+#page > .sidebar.left > .content [data-purpose='CHAPTER_SELECTOR'] li a[data-selected-state='SELECTED'] {
 	border-right-color: var(--codekandis-color-orange);
 }
 

@@ -52,9 +52,7 @@ class ChapterListHtmlGenerator implements HtmlGeneratorInterface
 			$generatedChapterItems[] = sprintf(
 				'<li><a href="/books/%s" data-selected-state="%s">%s</a>%s</li>',
 				$chapter->getCanonicalName(),
-				$boolToStringConverter->convertTo(
-					null !== $this->currentChapter && $chapter->getCanonicalName() === $this->currentChapter->getCanonicalName()
-				),
+				$boolToStringConverter->convertTo( $chapter === $this->currentChapter ),
 				$chapter->getName(),
 				0 === count( $chapter->getSubChapters() )
 					? ''
@@ -67,7 +65,8 @@ class ChapterListHtmlGenerator implements HtmlGeneratorInterface
 		return 0 === count( $generatedChapterItems )
 			? ''
 			: sprintf(
-				'<ul>%s</ul>',
+				'<ul data-purpose="%s">%s</ul>',
+				ElementPurposes::CHAPTER_SELECTOR,
 				implode( '', $generatedChapterItems )
 			);
 	}
