@@ -3,16 +3,17 @@
 @import './fonts.css';
 
 :root {
+	--base-line-height: 1.4em;
 	--base-font-family: 'Noto Sans';
 	--code-font-family: 'Fira Code';
 	--base-font-size: 10pt;
 	--page-top-margin: 30px;
 	--page-bottom-margin: 30px;
-	--sidebar-left-width: 300px;
-	--sidebar-right-width: 300px;
+	--sidebar-left-width: 350px;
+	--sidebar-right-width: 350px;
 	--sidebar-padding: 20px;
 	--document-padding: 50px;
-	--list-indent: 10px;
+	--list-indent: 20px;
 	--codekandis-color-orange: rgba(255, 160, 0, 1);
 	--codekandis-color-blue: rgba(0, 160, 255, 1);
 	--codekandis-color-light-gray: rgba(208, 208, 208, 1);
@@ -22,14 +23,15 @@
 }
 
 * {
+	line-height: var(--base-line-height);
 	margin: 0;
 	padding: 0;
 	font-family: var(--base-font-family);
 }
 
 body {
-	color: var(--codekandis-color-darker-gray);
 	font-size: var(--base-font-size);
+	color: var(--codekandis-color-darker-gray);
 }
 
 a {
@@ -64,8 +66,8 @@ a:hover {
 
 #page > .sidebar > .content h2 {
 	margin-top: 6px;
+	padding-bottom: 1px;
 	margin-bottom: 20px;
-	padding-bottom: 2px;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
 }
@@ -105,7 +107,7 @@ a:hover {
 	font-size: calc(var(--base-font-size) + 2pt);
 }
 
-#page > .sidebar.left > .content > div > ul > li:not(:first-child) {
+#page > .sidebar.left > .content > ul > li:not(:first-child) {
 	margin-top: 30px;
 }
 
@@ -115,7 +117,7 @@ a:hover {
 	color: #ffffff;
 }
 
-#page > .sidebar.left > .content > div > ul li a {
+#page > .sidebar.left > .content > ul li a {
 	padding-right: 5px;
 	color: #ffffff;
 	border-right-style: solid;
@@ -123,11 +125,11 @@ a:hover {
 	border-right-color: transparent;
 }
 
-#page > .sidebar.left > .content > div > ul li a:hover {
+#page > .sidebar.left > .content > ul li a:hover {
 	color: var(--codekandis-color-orange);
 }
 
-#page > .sidebar.left > .content > div > ul li a[data-is-selected='true'] {
+#page > .sidebar.left > .content > ul li a[data-selected-state='SELECTED'] {
 	border-right-color: var(--codekandis-color-orange);
 }
 

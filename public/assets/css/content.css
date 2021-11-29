@@ -1,9 +1,6 @@
 @charset "UTF-8";
 
 #page > .document > .content * {
-	margin: 0;
-	padding: 0;
-	line-height: 1.3em;
 	font-family: inherit;
 	font-size: var(--base-font-size);
 	letter-spacing: 0.05em;
@@ -18,7 +15,7 @@
 #page > .document > .content p,
 #page > .document > .content ol,
 #page > .document > .content ul {
-	margin-bottom: 1.3em;
+	margin-bottom: var(--base-line-height);
 }
 
 #page > .document > .content ol ol,
@@ -115,7 +112,7 @@
 }
 
 #page > .document > .content dl {
-	margin-bottom: 1.3em;
+	margin-bottom: var(--base-line-height);
 }
 
 #page > .document > .content dl > dt {
@@ -124,7 +121,7 @@
 }
 
 #page > .document > .content dl > dd {
-	margin: 0.3em 1.3em 1.3em 1.3em;
+	margin: 0.3em var(--base-line-height) var(--base-line-height) var(--base-line-height);
 }
 
 #page > .document > .content code {
@@ -139,7 +136,7 @@
 }
 
 #page > .document > .content pre {
-	margin-bottom: 1.3em;
+	margin-bottom: var(--base-line-height);
 	padding: 0.3em 0.5em;
 	background-color: #f4f4f4;
 	overflow-x: auto;
@@ -150,7 +147,7 @@
 }
 
 #page > .document > .content table {
-	margin-bottom: 1.3em;
+	margin-bottom: var(--base-line-height);
 	border-collapse: collapse;
 }
 
@@ -180,7 +177,7 @@
 }
 
 #page > .document > .content blockquote {
-	margin-bottom: 1.3em;
+	margin-bottom: var(--base-line-height);
 	padding: 0.3em 0.5em;
 	border-left-style: solid;
 	border-left-width: 3px;
@@ -192,7 +189,7 @@
 }
 
 #page > .document > .content hr {
-	margin-bottom: 1.3em;
+	margin-bottom: var(--base-line-height);
 	border-style: none none solid none;
 	border-width: 1px;
 	border-bottom-color: var(--codekandis-color-light-gray);
@@ -207,7 +204,7 @@
 
 #page > .document > .content .toolbar {
 	padding: 3px 0 2px 0;
-	font-size: 7pt;
+	font-size: calc(var(--base-font-size) - 3pt);
 	border-style: solid solid none solid;
 }
 
