@@ -56,19 +56,18 @@ class ChapterListHtmlGenerator implements HtmlGeneratorInterface
 				$chapter->getName(),
 				0 === count( $chapter->getSubChapters() )
 					? ''
-					: $this->generateList(
-					$chapter->getSubChapters()
+					: sprintf(
+					'<ul>%s</ul>',
+					$this->generateList(
+						$chapter->getSubChapters()
+					)
 				)
 			);
 		}
 
 		return 0 === count( $generatedChapterItems )
 			? ''
-			: sprintf(
-				'<ul data-purpose="%s">%s</ul>',
-				ElementPurposes::CHAPTER_SELECTOR,
-				implode( '', $generatedChapterItems )
-			);
+			: implode( '', $generatedChapterItems );
 	}
 
 	/**
@@ -76,6 +75,10 @@ class ChapterListHtmlGenerator implements HtmlGeneratorInterface
 	 */
 	public function generate(): string
 	{
-		return $this->generateList( $this->chapters );
+		return sprintf(
+			'<ul data-purpose="%s">%s</ul>',
+			ElementPurposes::CHAPTER_SELECTOR,
+			$this->generateList( $this->chapters )
+		);
 	}
 }

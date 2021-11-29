@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+@import './components.css';
 @import '../fonts/fonts.css';
 
 :root {
@@ -85,8 +86,8 @@ a:hover {
 	padding-left: var(--list-indent);
 }
 
-#page > .sidebar > .content ul li:not(:first-child),
-#page > .sidebar > .content ul ul li {
+#page > .sidebar > .content > ul li:not(:first-child),
+#page > .sidebar > .content > ul ul li {
 	margin-top: 0.4em;
 }
 
@@ -103,7 +104,6 @@ a:hover {
 #page > .sidebar.left > .content [data-purpose='BOOK_SELECTOR'] {
 	display: block;
 	margin-bottom: 20px;
-	padding: 3px 2px 3px 2px;
 	width: 100%;
 	font-size: calc(var(--base-font-size) + 2pt);
 }

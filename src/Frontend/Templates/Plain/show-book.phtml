@@ -3,7 +3,7 @@ namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 
 use CodeKandis\HotDoc\Environment\Entities\BookEntityInterface;
 use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
-use CodeKandis\HotDoc\Frontend\Templates\Generators\BookSelectHtmlGenerator;
+use CodeKandis\HotDoc\Frontend\Templates\Generators\BookDropdownHtmlGenerator;
 use CodeKandis\HotDoc\Frontend\Templates\Generators\ChapterListHtmlGenerator;
 use function sprintf;
 
@@ -35,7 +35,7 @@ $sidebarLeftContent = sprintf(
 		%s
 		%s
 	END,
-	( new BookSelectHtmlGenerator( $books, $requestedBook ) )
+	( new BookDropdownHtmlGenerator( $books, $requestedBook ) )
 		->generate(),
 	$chapterList
 );
