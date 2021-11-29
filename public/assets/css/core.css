@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import './fonts.css';
+@import '../fonts/fonts.css';
 
 :root {
 	--base-line-height: 1.4em;
