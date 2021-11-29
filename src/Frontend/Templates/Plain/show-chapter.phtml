@@ -56,11 +56,16 @@ $sidebarRightContent = sprintf(
 	$parsedownToC->contentsList()
 );
 
+$additionalPrecedingLinkedJavaScripts = [
+	'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js'
+];
+
 $additionalFollowingLinkedModularJavaScripts = [
 	'/assets/js/application/Pages/ShowChapter.js'
 ];
 
-$additionalFollowingLinkedStylesheets = [
+$additionalPrecedingLinkedStylesheets = [
+	'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/stackoverflow-light.min.css',
 	'/assets/css/content.css'
 ];
 
