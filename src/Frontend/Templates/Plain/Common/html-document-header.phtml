@@ -6,17 +6,6 @@ namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 <head>
 	<meta charset="utf-8"/>
 	<?php
-	if ( true === isset( $additionalPrecedingInlineJavaScripts ) )
-	{
-		foreach ( $additionalPrecedingInlineJavaScripts as $additionalPrecedingInlineJavaScript )
-		{
-			echo <<< END
-				<script type="text/javascript">
-					{$additionalPrecedingInlineJavaScript}
-				</script>
-			END;
-		}
-	}
 	if ( true === isset( $additionalPrecedingLinkedJavaScripts ) )
 	{
 		foreach ( $additionalPrecedingLinkedJavaScripts as $additionalPrecedingLinkedJavaScript )
@@ -32,6 +21,17 @@ namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 		{
 			echo <<< END
 				<script type="module" src="{$additionalPrecedingLinkedModularJavaScript}"></script>
+			END;
+		}
+	}
+	if ( true === isset( $additionalPrecedingInlineJavaScripts ) )
+	{
+		foreach ( $additionalPrecedingInlineJavaScripts as $additionalPrecedingInlineJavaScript )
+		{
+			echo <<< END
+				<script type="text/javascript">
+					{$additionalPrecedingInlineJavaScript}
+				</script>
 			END;
 		}
 	}
@@ -67,6 +67,15 @@ namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 			END;
 		}
 	}
+	if ( true === isset( $additionalPrecedingLinkedStylesheets ) )
+	{
+		foreach ( $additionalPrecedingLinkedStylesheets as $additionalPrecedingLinkedStylesheet )
+		{
+			echo <<< END
+				<link rel="stylesheet" type="text/css" href="{$additionalPrecedingLinkedStylesheet}" data-replaceable/>
+			END;
+		}
+	}
 	if ( true === isset( $additionalPrecedingInlineStylesheets ) )
 	{
 		foreach ( $additionalPrecedingInlineStylesheets as $additionalPrecedingInlineStylesheet )
@@ -75,15 +84,6 @@ namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 				<style>
 					{$additionalPrecedingInlineStylesheet}
 				</style>
-			END;
-		}
-	}
-	if ( true === isset( $additionalPrecedingLinkedStylesheets ) )
-	{
-		foreach ( $additionalPrecedingLinkedStylesheets as $additionalPrecedingLinkedStylesheet )
-		{
-			echo <<< END
-				<link rel="stylesheet" type="text/css" href="{$additionalPrecedingLinkedStylesheet}"/>
 			END;
 		}
 	}
