@@ -6,8 +6,6 @@ use CodeKandis\HotDoc\Environment\Entities\ChapterEntityInterface;
 use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
 use CodeKandis\HotDoc\Frontend\Templates\Generators\BookSelectHtmlGenerator;
 use CodeKandis\HotDoc\Frontend\Templates\Generators\ChapterListHtmlGenerator;
-use CodeKandis\JsonCodec\JsonEncoder;
-use CodeKandis\JsonCodec\JsonEncoderOptions;
 use ParsedownToC;
 use function file_get_contents;
 use function sprintf;
@@ -58,19 +56,8 @@ $sidebarRightContent = sprintf(
 	$parsedownToC->contentsList()
 );
 
-$booksJsonData = ( new JsonEncoder() )
-	->encode(
-		$books,
-		new JsonEncoderOptions( JsonEncoderOptions::PRETTY_PRINT )
-	);
-
 $additionalFollowingLinkedModularJavaScripts = [
-	'/assets/js/application/Pages/ShowBook.js'
-];
-$additionalPrecedingInlineJavaScripts        = [
-	<<<END
-		const books = {$booksJsonData};
-	END
+	'/assets/js/application/Pages/ShowChapter.js'
 ];
 
 $additionalFollowingLinkedStylesheets = [
