@@ -24,16 +24,16 @@ class BookDropdownHtmlGenerator implements HtmlGeneratorInterface
 
 	/**
 	 * Stores the current book.
-	 * @var BookEntityInterface
+	 * @var ?BookEntityInterface
 	 */
-	private BookEntityInterface $currentBook;
+	private ?BookEntityInterface $currentBook;
 
 	/**
 	 * Constructor method.
 	 * @param BookEntityCollectionInterface $books The books.
-	 * @param BookEntityInterface $currentBook The current selected book.
+	 * @param ?BookEntityInterface $currentBook The current selected book.
 	 */
-	public function __construct( BookEntityCollectionInterface $books, BookEntityInterface $currentBook )
+	public function __construct( BookEntityCollectionInterface $books, ?BookEntityInterface $currentBook )
 	{
 		$this->books       = $books;
 		$this->currentBook = $currentBook;
@@ -49,7 +49,7 @@ class BookDropdownHtmlGenerator implements HtmlGeneratorInterface
 		);
 		foreach ( $this->books as $book )
 		{
-			$isSelected           = $book->getCanonicalName() === $this->currentBook->getCanonicalName();
+			$isSelected           = $book === $this->currentBook;
 			$generatedBookItems[] = sprintf(
 				'<li data-selected-state="%s"%s><a href="%s">%s</a></li>',
 				$boolToStringConverter->convertTo( $isSelected ),
