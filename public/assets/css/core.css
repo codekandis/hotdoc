@@ -48,8 +48,10 @@ a:hover {
 
 #page > .sidebar > .content,
 #page > .document > .content {
-	margin-top: var(--page-top-margin);
-	margin-bottom: var(--page-bottom-margin);
+	box-sizing: border-box;
+	padding-top: var(--page-top-margin);
+	padding-bottom: var(--page-bottom-margin);
+	min-height: 100vh;
 	overflow-y: auto;
 }
 
