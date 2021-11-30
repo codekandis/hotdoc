@@ -4,7 +4,7 @@ namespace CodeKandis\HotDoc;
 use CodeKandis\HotDoc\Configurations\FrontendConfigurationRegistry;
 use CodeKandis\SentryClient\SentryClient;
 use CodeKandis\Tiphy\Actions\ActionDispatcher;
-use CodeKandis\TiphySentryClientIntegration\Development\Throwables\Handlers\InternalServerErrorThrowableHandler;
+use CodeKandis\TiphySentryClientIntegration\Throwables\Handlers\InternalServerErrorThrowableHandler;
 use function dirname;
 use function error_reporting;
 use function ini_set;

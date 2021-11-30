@@ -7,7 +7,7 @@ return [
 	'dsn'           => '',
 	'displayErrors' => false,
 	'errorTypes'    => E_ALL,
-	'environment'   => 'development',
+	'environment'   => 'production',
 	'release'       => 'dev-development',
 	'serverName'    => 'hotdoc.codekandis'
 ];
