@@ -8,6 +8,6 @@ return [
 	'displayErrors' => false,
 	'errorTypes'    => E_ALL,
 	'environment'   => 'production',
-	'release'       => 'dev-development',
+	'release'       => '0.1.0',
 	'serverName'    => 'hotdoc.codekandis'
 ];
