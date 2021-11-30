@@ -1,0 +1,28 @@
+<?php declare( strict_types = 1 );
+namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
+
+/**
+ * @var string $contentContent
+ * @var string $sidebarLeftContent
+ * @var string $sidebarRightContent
+ */
+?>
+<body>
+<div id="page">
+	<nav class="sidebar left">
+		<div class="content">
+			<?php echo $sidebarLeftContent ?? ''; ?>
+		</div>
+	</nav>
+	<section class="document">
+		<div class="content">
+			<?php echo $contentContent ?? ''; ?>
+		</div>
+	</section>
+	<nav class="sidebar right">
+		<div class="content">
+			<?php echo $sidebarRightContent ?? ''; ?>
+		</div>
+	</nav>
+</div>
+</body>

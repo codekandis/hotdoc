@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+[data-component-type='dropdown'] {
+	box-sizing: border-box;
+	display: inline-block;
+	position: relative;
+}
+
+[data-component-type='dropdown'] > input[type='checkbox'] {
+	display: none;
+}
+
+[data-component-type='dropdown'] > label {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	padding: 0.2em 0.5em 0.3em 0.5em;
+	color: var(--codekandis-color-darker-gray);
+	background-color: rgba(255, 255, 255, 1);
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(--codekandis-color-light-gray);
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+[data-component-type='dropdown'] > input[type='checkbox']:checked ~ label {
+	border-radius: 3px 3px 0 0;
+}
+
+[data-component-type='dropdown'] > input[type='checkbox'] ~ label:after {
+	position: absolute;
+	right: 0.1em;
+	top: 0.2em;
+	content: "▼";
+}
+
+[data-component-type='dropdown'] > input[type='checkbox']:checked ~ label:after {
+	content: "▲";
+}
+
+[data-component-type='dropdown'] > input[type='checkbox'] ~ ul {
+	position: absolute;
+	padding: 0.3em 0;
+	width: 100%;
+	display: none;
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 0 0 3px 3px;
+}
+
+[data-component-type='dropdown'] > input[type='checkbox']:checked ~ ul {
+	display: inline-block;
+}
+
+[data-component-type='dropdown'] > input[type='checkbox'] ~ ul li a {
+	padding: 0.2em 0.5em;
+	color: var(--codekandis-color-darker-gray);
+}
+
+[data-component-type='dropdown'] > input[type='checkbox'] ~ ul li a:hover {
+	background-color: var(--codekandis-color-lighter-gray);
+}

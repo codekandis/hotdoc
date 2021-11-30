@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+@import './components.css';
+@import '../fonts/fonts.css';
+
+:root {
+	--base-line-height: 1.4em;
+	--base-font-family: 'Noto Sans';
+	--code-font-family: 'Fira Code';
+	--base-font-size: 10pt;
+	--page-top-margin: 30px;
+	--page-bottom-margin: 30px;
+	--sidebar-left-width: 350px;
+	--sidebar-right-width: 350px;
+	--sidebar-padding: 20px;
+	--document-padding: 50px;
+	--list-indent: 20px;
+	--codekandis-color-orange: rgba(255, 160, 0, 1);
+	--codekandis-color-blue: rgba(0, 160, 255, 1);
+	--codekandis-color-lighter-gray: rgb(232, 232, 232, 1);
+	--codekandis-color-light-gray: rgba(208, 208, 208, 1);
+	--codekandis-color-gray: rgba(160, 160, 160);
+	--codekandis-color-dark-gray: rgba(128, 128, 128, 1);
+	--codekandis-color-darker-gray: rgba(64, 64, 64, 1);
+}
+
+* {
+	line-height: var(--base-line-height);
+	margin: 0;
+	padding: 0;
+	font-family: var(--base-font-family);
+}
+
+body {
+	font-size: var(--base-font-size);
+	color: var(--codekandis-color-darker-gray);
+}
+
+a {
+	color: var(--codekandis-color-blue);
+	font-style: normal;
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--codekandis-color-orange);
+}
+
+#page > .sidebar > .content,
+#page > .document > .content {
+	box-sizing: border-box;
+	padding-top: var(--page-top-margin);
+	padding-bottom: var(--page-bottom-margin);
+	min-height: 100vh;
+	overflow-y: auto;
+}
+
+#page > .sidebar {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	overflow-y: auto;
+}
+
+#page > .sidebar > .content {
+	padding-left: var(--sidebar-padding);
+	padding-right: var(--sidebar-padding);
+	font-size: calc(var(--base-font-size) + 2pt);
+}
+
+#page > .sidebar > .content h2 {
+	margin-top: 6px;
+	padding-bottom: 1px;
+	margin-bottom: 20px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+#page > .sidebar > .content ul {
+	list-style: none;
+}
+
+#page > .sidebar > .content ul li a {
+	display: block;
+}
+
+#page > .sidebar > .content ul ul {
+	padding-left: var(--list-indent);
+}
+
+#page > .sidebar > .content > ul li:not(:first-child),
+#page > .sidebar > .content > ul ul li {
+	margin-top: 0.4em;
+}
+
+#page > .sidebar.left {
+	left: 0;
+	width: var(--sidebar-left-width);
+	background: #404040;
+}
+
+#page > .sidebar > .content h2 {
+	border-bottom-color: var(--codekandis-color-gray);
+}
+
+#page > .sidebar.left > .content [data-purpose='BOOK_SELECTOR'] {
+	display: block;
+	margin-bottom: 20px;
+	width: 100%;
+	font-size: calc(var(--base-font-size) + 2pt);
+}
+
+#page > .sidebar.left > .content [data-purpose='CHAPTER_SELECTOR'] > li:not(:first-child) {
+	margin-top: 30px;
+}
+
+#page > .sidebar.left > .content {
+	font-style: normal;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+#page > .sidebar.left > .content [data-purpose='CHAPTER_SELECTOR'] li a {
+	padding-right: 5px;
+	color: #ffffff;
+	border-right-style: solid;
+	border-right-width: 2px;
+	border-right-color: transparent;
+}
+
+#page > .sidebar.left > .content [data-purpose='CHAPTER_SELECTOR'] li a:hover {
+	color: var(--codekandis-color-orange);
+}
+
+#page > .sidebar.left > .content [data-purpose='CHAPTER_SELECTOR'] li a[data-selected-state='SELECTED'] {
+	border-right-color: var(--codekandis-color-orange);
+}
+
+#page > .sidebar.right {
+	right: 0;
+	width: var(--sidebar-right-width);
+}
+
+#page > .sidebar.right > .content {
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: var(--codekandis-color-light-gray);
+}
+
+#page > .sidebar.right > .content h2 {
+	border-bottom-color: var(--codekandis-color-light-gray);
+}
+
+#page > .document {
+	margin: 0 var(--sidebar-right-width) 0 var(--sidebar-left-width);
+	width: calc(100vw - var(--sidebar-left-width) - var(--sidebar-right-width));
+}
+
+#page > .document > .content {
+	box-sizing: border-box;
+	padding-left: var(--document-padding);
+	padding-right: var(--document-padding);
+}

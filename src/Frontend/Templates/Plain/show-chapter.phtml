@@ -1,0 +1,75 @@
+<?php declare( strict_types = 1 );
+namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
+
+use CodeKandis\HotDoc\Environment\Entities\BookEntityInterface;
+use CodeKandis\HotDoc\Environment\Entities\ChapterEntityInterface;
+use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
+use CodeKandis\HotDoc\Frontend\Templates\Generators\BookDropdownHtmlGenerator;
+use CodeKandis\HotDoc\Frontend\Templates\Generators\ChapterListHtmlGenerator;
+use ParsedownToC;
+use function file_get_contents;
+use function sprintf;
+
+/**
+ * @var BookEntityCollectionInterface $books
+ */
+$books = $this->data[ 'books' ];
+
+/**
+ * @var BookEntityInterface $requestedBook
+ */
+$requestedBook = $this->data[ 'requestedBook' ];
+
+/**
+ * @var ChapterEntityInterface $requestedChapter
+ */
+$requestedChapter = $this->data[ 'requestedChapter' ];
+
+$parsedownToC = new ParsedownToC();
+
+$contentContent = $parsedownToC->text(
+	file_get_contents(
+		sprintf(
+			'%s.md',
+			$this->data[ 'documentPath' ]
+		)
+	)
+);
+
+$sidebarLeftContent = sprintf(
+	<<<END
+		<h2>Books</h2>
+		%s
+		%s
+	END,
+	( new BookDropdownHtmlGenerator( $books, $requestedBook ) )
+		->generate(),
+	( new ChapterListHtmlGenerator( $requestedBook->getChapters(), $requestedChapter ) )
+		->generate()
+);
+
+$sidebarRightContent = sprintf(
+	<<<END
+		<h2>Table Of Contents</h2>
+		%s
+	END,
+	$parsedownToC->contentsList()
+);
+
+$additionalPrecedingLinkedJavaScripts = [
+	'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js',
+	'https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js'
+];
+
+$additionalFollowingLinkedModularJavaScripts = [
+	'/assets/js/application/Pages/ShowChapter.js'
+];
+
+$additionalPrecedingLinkedStylesheets = [
+	'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/stackoverflow-light.min.css',
+	'/assets/css/content.css'
+];
+
+require __DIR__ . '/Common/html-document-header.phtml';
+require __DIR__ . '/Common/html-document-body.phtml';
+require __DIR__ . '/Common/html-document-footer.phtml';

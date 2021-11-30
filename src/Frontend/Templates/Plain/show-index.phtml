@@ -1,0 +1,32 @@
+<?php declare( strict_types = 1 );
+namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
+
+use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
+use CodeKandis\HotDoc\Frontend\Templates\Generators\BookDropdownHtmlGenerator;
+use function sprintf;
+
+/**
+ * @var BookEntityCollectionInterface $books
+ */
+$books = $this->data[ 'books' ];
+
+$sidebarLeftContent = sprintf(
+	<<<END
+		<h2>Books</h2>
+		%s
+	END,
+	( new BookDropdownHtmlGenerator( $books, null ) )
+		->generate()
+);
+
+$additionalFollowingLinkedModularJavaScripts = [
+	'/assets/js/application/Pages/ShowIndex.js'
+];
+
+$additionalFollowingLinkedStylesheets = [
+	'/assets/css/content.css'
+];
+
+require __DIR__ . '/Common/html-document-header.phtml';
+require __DIR__ . '/Common/html-document-body.phtml';
+require __DIR__ . '/Common/html-document-footer.phtml';
