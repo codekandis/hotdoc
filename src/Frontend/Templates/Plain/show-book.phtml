@@ -1,11 +1,21 @@
 <?php declare( strict_types = 1 );
 namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 
+use CodeKandis\HotDoc\Configurations\FrontendConfigurationRegistry;
 use CodeKandis\HotDoc\Environment\Entities\BookEntityInterface;
 use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
+use CodeKandis\HotDoc\Environment\Entities\UserEntity;
+use CodeKandis\HotDoc\Environment\Entities\UserEntityInterface;
+use CodeKandis\HotDoc\Frontend\Http\UriBuilders\FrontendUriBuilder;
 use CodeKandis\HotDoc\Frontend\Templates\Generators\BookDropdownHtmlGenerator;
 use CodeKandis\HotDoc\Frontend\Templates\Generators\ChapterListHtmlGenerator;
+use CodeKandis\HotDoc\Frontend\Templates\Generators\SignedInHeaderContentGenerator;
 use function sprintf;
+
+/**
+ * @var UserEntityInterface $signedInUser
+ */
+$signedInUser = $this->data[ 'signedInUser' ];
 
 /**
  * @var BookEntityCollectionInterface $books
@@ -18,6 +28,16 @@ $books = $this->data[ 'books' ];
 $requestedBook = $this->data[ 'requestedBook' ];
 
 $chapterList = ( new ChapterListHtmlGenerator( $requestedBook->getChapters(), null ) )
+	->generate();
+
+$headerContent = ( new SignedInHeaderContentGenerator(
+	$signedInUser,
+	new FrontendUriBuilder(
+		FrontendConfigurationRegistry
+			::_()
+			->getUriBuilderConfiguration()
+	)
+) )
 	->generate();
 
 $contentContent = sprintf(

@@ -28,14 +28,21 @@
 	"require": {
 		"php": "^7.4",
 		"benjaminhoegh/parsedown-toc": "^1",
+		"codekandis/authentication": "^0",
 		"codekandis/configurations": "^0",
 		"codekandis/constants-classes-translator": "^1",
 		"codekandis/converters": "^0",
+		"codekandis/persistence": "^0",
 		"codekandis/sentry-client": "^1",
+		"codekandis/session": "^0",
 		"codekandis/tiphy": "^0",
+		"codekandis/tiphy-authentication-integration": "^0",
+		"codekandis/tiphy-persistence-integration": "^0",
 		"codekandis/tiphy-sentry-client-integration": "^0",
+		"codekandis/tiphy-session-integration": "^0",
 		"codekandis/validators": "^0",
-		"erusev/parsedown-extra": "^0"
+		"erusev/parsedown-extra": "^0",
+		"fortawesome/font-awesome": "^5"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-master",
@@ -44,7 +51,7 @@
 	"autoload": {
 		"psr-4": {
 			"CodeKandis\\HotDoc\\": [
-				"public",
+				"public/",
 				"src/"
 			],
 			"CodeKandis\\HotDoc\\Configurations\\Plain\\": [

@@ -10,6 +10,9 @@ return [
 		'^/$'                                                              => [
 			Methods::GET => Frontend\Get\ShowIndexAction::class
 		],
+		'^/signout$'                                                       => [
+			Methods::GET => Frontend\Get\SignOutAction::class
+		],
 		'^/books/(?<canonicalBookName>[^/]+)$'                             => [
 			Methods::GET => Frontend\Get\ShowBookAction::class
 		],

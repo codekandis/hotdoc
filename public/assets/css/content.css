@@ -50,28 +50,34 @@
 	border-bottom-color: var(--codekandis-color-light-gray);
 }
 
-#page > .document > .content h1 {
-	font-size: calc(var(--base-font-size) + 12pt);
+#page > .document > .content h1,
+#page > .document > .content h1 * {
+	font-size: calc(var(--base-font-size) + 12pt) ! important;
 }
 
-#page > .document > .content h2 {
-	font-size: calc(var(--base-font-size) + 8pt);
+#page > .document > .content h2,
+#page > .document > .content h2 * {
+	font-size: calc(var(--base-font-size) + 8pt) !important;
 }
 
-#page > .document > .content h3 {
-	font-size: calc(var(--base-font-size) + 6pt);
+#page > .document > .content h3,
+#page > .document > .content h3 * {
+	font-size: calc(var(--base-font-size) + 6pt) !important;
 }
 
-#page > .document > .content h4 {
-	font-size: calc(var(--base-font-size) + 4pt);
+#page > .document > .content h4,
+#page > .document > .content h4 * {
+	font-size: calc(var(--base-font-size) + 4pt) !important;
 }
 
-#page > .document > .content h5 {
-	font-size: calc(var(--base-font-size) + 2pt);
+#page > .document > .content h5,
+#page > .document > .content h5 * {
+	font-size: calc(var(--base-font-size) + 2pt) !important;
 }
 
-#page > .document > .content h6 {
-	font-size: var(--base-font-size);
+#page > .document > .content h6,
+#page > .document > .content h6 * {
+	font-size: var(--base-font-size) !important;
 }
 
 #page > .document > .content em {

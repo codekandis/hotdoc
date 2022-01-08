@@ -20,7 +20,8 @@ class ShowIndexAction extends AbstractAction
 	{
 		$books = $this->readBooks();
 		$data  = [
-			'books' => $books
+			'signedInUser' => $this->getSignedInUser(),
+			'books'        => $books
 		];
 
 		( new HtmlTemplateResponder(

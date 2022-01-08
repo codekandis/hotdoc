@@ -2,6 +2,7 @@
 namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 
 /**
+ * @var string $headerContent
  * @var string $contentContent
  * @var string $sidebarLeftContent
  * @var string $sidebarRightContent
@@ -9,6 +10,11 @@ namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 ?>
 <body>
 <div id="page">
+	<header class="header">
+		<div class="content">
+			<?php echo $headerContent ?? ''; ?>
+		</div>
+	</header>
 	<nav class="sidebar left">
 		<div class="content">
 			<?php echo $sidebarLeftContent ?? ''; ?>

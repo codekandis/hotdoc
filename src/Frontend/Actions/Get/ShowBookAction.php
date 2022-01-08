@@ -31,6 +31,7 @@ class ShowBookAction extends AbstractAction
 
 		$books = $this->readBooks();
 		$data  = [
+			'signedInUser'  => $this->getSignedInUser(),
 			'books'         => $books,
 			'requestedBook' => $books->findBookByCanonicalBookName( $requestedCanonicalBookName ),
 		];

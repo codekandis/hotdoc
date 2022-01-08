@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8a69e8d9633312f1efc869812c83155",
+    "content-hash": "f2588595945c54927f08163958675ada",
     "packages": [
         {
             "name": "benjaminhoegh/parsedown-toc",
@@ -125,6 +125,64 @@
                 }
             ],
             "time": "2022-02-21T13:15:14+00:00"
+        },
+        {
+            "name": "codekandis/authentication",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codekandis/authentication.git",
+                "reference": "184bc2f463eb630e629dd43dd2793d355cdf4735"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codekandis/authentication/zipball/184bc2f463eb630e629dd43dd2793d355cdf4735",
+                "reference": "184bc2f463eb630e629dd43dd2793d355cdf4735",
+                "shasum": ""
+            },
+            "require": {
+                "codekandis/configurations": "^0",
+                "codekandis/session": "^0",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "codekandis/phpunit": "^3",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeKandis\\Authentication\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Ramelow",
+                    "email": "info@codekandis.net",
+                    "homepage": "https://codekandis.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This library provides authentication adapters for various authentication methods.",
+            "keywords": [
+                "Authentication",
+                "adapters",
+                "library",
+                "php"
+            ],
+            "support": {
+                "docs": "https://github.com/codekandis/authentication/blob/master/README.md",
+                "email": "info@codekandis.net",
+                "issues": "https://github.com/codekandis/authentication/issues",
+                "source": "https://github.com/codekandis/authentication/tree/master"
+            },
+            "time": "2022-01-08T19:07:48+00:00"
         },
         {
             "name": "codekandis/configurations",
@@ -477,6 +535,65 @@
             "time": "2021-01-17T14:54:10+00:00"
         },
         {
+            "name": "codekandis/persistence",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codekandis/persistence.git",
+                "reference": "803eb0156bc603560fdd22d5f38ab8b74ef70b53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codekandis/persistence/zipball/803eb0156bc603560fdd22d5f38ab8b74ef70b53",
+                "reference": "803eb0156bc603560fdd22d5f38ab8b74ef70b53",
+                "shasum": ""
+            },
+            "require": {
+                "codekandis/entities": "^0",
+                "ext-pdo": "*",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "codekandis/phpunit": "^3",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeKandis\\Persistence\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Ramelow",
+                    "email": "info@codekandis.net",
+                    "homepage": "https://codekandis.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "`codekandis/persistence` is a library providing database connector and repository interfaces and classes.",
+            "keywords": [
+                "classes",
+                "interfaces",
+                "library",
+                "persistence",
+                "php"
+            ],
+            "support": {
+                "docs": "https://github.com/codekandis/persistence/blob/master/README.md",
+                "email": "info@codekandis.net",
+                "issues": "https://github.com/codekandis/persistence/issues",
+                "source": "https://github.com/codekandis/persistence/tree/master"
+            },
+            "time": "2021-11-08T07:25:13+00:00"
+        },
+        {
             "name": "codekandis/phlags",
             "version": "3.0.0",
             "source": {
@@ -655,6 +772,65 @@
             "time": "2021-01-21T08:26:35+00:00"
         },
         {
+            "name": "codekandis/session",
+            "version": "0.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codekandis/session.git",
+                "reference": "c785b9f668ebd46319016f8804ec62ca5c3e4fa8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codekandis/session/zipball/c785b9f668ebd46319016f8804ec62ca5c3e4fa8",
+                "reference": "c785b9f668ebd46319016f8804ec62ca5c3e4fa8",
+                "shasum": ""
+            },
+            "require": {
+                "codekandis/configurations": "^0",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "codekandis/phpunit": "^3",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeKandis\\Session\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Ramelow",
+                    "email": "info@codekandis.net",
+                    "homepage": "https://codekandis.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "`codekandis/configurations` is a library providing session handling interfaces and classes.",
+            "keywords": [
+                "classes",
+                "handling",
+                "interfaces",
+                "library",
+                "php",
+                "session"
+            ],
+            "support": {
+                "docs": "https://github.com/codekandis/session/blob/master/README.md",
+                "email": "info@codekandis.net",
+                "issues": "https://github.com/codekandis/session/issues",
+                "source": "https://github.com/codekandis/session/tree/master"
+            },
+            "time": "2022-01-03T10:30:17+00:00"
+        },
+        {
             "name": "codekandis/tiphy",
             "version": "0.39.1",
             "source": {
@@ -716,6 +892,126 @@
             "time": "2022-01-04T10:53:25+00:00"
         },
         {
+            "name": "codekandis/tiphy-authentication-integration",
+            "version": "0.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codekandis/tiphy-authentication-integration.git",
+                "reference": "f123182c7b27dd111da57b779f80f4b1272e19fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codekandis/tiphy-authentication-integration/zipball/f123182c7b27dd111da57b779f80f4b1272e19fe",
+                "reference": "f123182c7b27dd111da57b779f80f4b1272e19fe",
+                "shasum": ""
+            },
+            "require": {
+                "codekandis/authentication": "^0",
+                "codekandis/converters": "^0",
+                "codekandis/entities": "^0",
+                "codekandis/persistence": "^0",
+                "codekandis/tiphy": "^0",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "codekandis/phpunit": "^3",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeKandis\\TiphyAuthenticationIntegration\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Ramelow",
+                    "email": "info@codekandis.net",
+                    "homepage": "https://codekandis.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This library is an integration of `codekandis/authentication` into `codekandis/tiphy`.",
+            "keywords": [
+                "Authentication",
+                "integration",
+                "php",
+                "tiphy"
+            ],
+            "support": {
+                "docs": "https://github.com/codekandis/tiphy-authentication-integration/blob/master/README.md",
+                "email": "edv@medialogistik.de",
+                "issues": "https://github.com/codekandis/tiphy-authentication-integration/issues",
+                "source": "https://github.com/codekandis/tiphy-authentication-integration/tree/master"
+            },
+            "time": "2021-11-08T09:35:50+00:00"
+        },
+        {
+            "name": "codekandis/tiphy-persistence-integration",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codekandis/tiphy-persistence-integration.git",
+                "reference": "45315a30599afbcaa9d378b34d51481500ef1ebc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codekandis/tiphy-persistence-integration/zipball/45315a30599afbcaa9d378b34d51481500ef1ebc",
+                "reference": "45315a30599afbcaa9d378b34d51481500ef1ebc",
+                "shasum": ""
+            },
+            "require": {
+                "codekandis/persistence": "^0",
+                "codekandis/tiphy": "^0",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "codekandis/phpunit": "^3",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeKandis\\TiphyPersistenceIntegration\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Ramelow",
+                    "email": "info@codekandis.net",
+                    "homepage": "https://codekandis.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "`codekandis/tiphy-persistence-integration` is a library integrating `codekandis/persistence` into `codekandis/tiphy`.",
+            "keywords": [
+                "integration",
+                "library",
+                "persistence",
+                "php",
+                "tiphy"
+            ],
+            "support": {
+                "docs": "https://github.com/codekandis/tiphy-persistence-integration/blob/master/README.md",
+                "email": "info@codekandis.net",
+                "issues": "https://github.com/codekandis/tiphy-persistence-integration/issues",
+                "source": "https://github.com/codekandis/tiphy-persistence-integration/tree/master"
+            },
+            "time": "2021-10-19T17:49:31+00:00"
+        },
+        {
             "name": "codekandis/tiphy-sentry-client-integration",
             "version": "0.9.0",
             "source": {
@@ -775,6 +1071,66 @@
                 "source": "https://github.com/codekandis/tiphy-sentry-client-integration/tree/master"
             },
             "time": "2021-10-18T22:29:30+00:00"
+        },
+        {
+            "name": "codekandis/tiphy-session-integration",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codekandis/tiphy-session-integration.git",
+                "reference": "77fd9c8a583638ea94e57f1171755c1af89d34b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codekandis/tiphy-session-integration/zipball/77fd9c8a583638ea94e57f1171755c1af89d34b0",
+                "reference": "77fd9c8a583638ea94e57f1171755c1af89d34b0",
+                "shasum": ""
+            },
+            "require": {
+                "codekandis/configurations": "^0",
+                "codekandis/session": "^0",
+                "codekandis/tiphy": "^0",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "codekandis/phpunit": "^3",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeKandis\\TiphySessionIntegration\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Ramelow",
+                    "email": "info@codekandis.net",
+                    "homepage": "https://codekandis.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "`codekandis/tiphy-session-integration` is a library integrating `codekandis/session` into `codekandis/tiphy`.",
+            "keywords": [
+                "integration",
+                "library",
+                "php",
+                "session",
+                "tiphy"
+            ],
+            "support": {
+                "docs": "https://github.com/codekandis/tiphy-session-integration/blob/master/README.md",
+                "email": "info@codekandis.net",
+                "issues": "https://github.com/codekandis/tiphy-session-integration/issues",
+                "source": "https://github.com/codekandis/tiphy-session-integration/tree/master"
+            },
+            "time": "2021-10-19T18:23:09+00:00"
         },
         {
             "name": "codekandis/validators",
@@ -933,6 +1289,75 @@
                 "source": "https://github.com/erusev/parsedown-extra/tree/0.8.x"
             },
             "time": "2019-12-30T23:20:37+00:00"
+        },
+        {
+            "name": "fortawesome/font-awesome",
+            "version": "5.15.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "7d3d774145ac38663f6d1effc6def0334b68ab7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/7d3d774145ac38663f6d1effc6def0334b68ab7e",
+                "reference": "7d3d774145ac38663f6d1effc6def0334b68ab7e",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-4.0",
+                "OFL-1.1",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Travis Chase",
+                    "homepage": "http://twitter.com/supercodepoet"
+                },
+                {
+                    "name": "Dave Gandy",
+                    "homepage": "http://twitter.com/davegandy"
+                },
+                {
+                    "name": "Rob Madole",
+                    "homepage": "http://twitter.com/robmadole"
+                },
+                {
+                    "name": "Jory Raphael",
+                    "homepage": "http://twitter.com/sensibleworld"
+                },
+                {
+                    "name": "Geremia Taglialatela",
+                    "homepage": "http://twitter.com/gtagliala"
+                },
+                {
+                    "name": "Brian Talbot",
+                    "homepage": "http://twitter.com/talbs"
+                },
+                {
+                    "name": "Mike Wilkerson",
+                    "homepage": "http://twitter.com/mw77"
+                }
+            ],
+            "description": "The iconic font, CSS, and SVG framework",
+            "homepage": "https://fontawesome.com",
+            "keywords": [
+                "FontAwesome",
+                "awesome",
+                "bootstrap",
+                "font",
+                "icon",
+                "svg"
+            ],
+            "support": {
+                "docs": "http://fontawesome.com/how-to-use",
+                "email": "hello@fontawesome.com",
+                "issues": "https://github.com/FortAwesome/Font-Awesome/issues",
+                "source": "https://github.com/FortAwesome/Font-Awesome"
+            },
+            "time": "2021-08-04T19:09:22+00:00"
         },
         {
             "name": "guzzlehttp/promises",

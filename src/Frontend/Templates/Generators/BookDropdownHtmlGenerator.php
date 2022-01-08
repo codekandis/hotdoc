@@ -5,8 +5,9 @@ use CodeKandis\Converters\UniDirectionalConverters\EnumToArrayUniDirectionalConv
 use CodeKandis\HotDoc\Environment\Converters\BoolToCustomizedStringBiDirectionalConverter;
 use CodeKandis\HotDoc\Environment\Entities\BookEntityInterface;
 use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
+use CodeKandis\HotDoc\Frontend\Templates\Components\ComponentStyles;
+use CodeKandis\HotDoc\Frontend\Templates\Components\DropDownComponent;
 use function count;
-use function implode;
 use function sprintf;
 
 /**
@@ -39,7 +40,10 @@ class BookDropdownHtmlGenerator implements HtmlGeneratorInterface
 		$this->currentBook = $currentBook;
 	}
 
-	private function generateSelectOptions(): string
+	/**
+	 * {@inheritDoc}
+	 */
+	public function generate(): string
 	{
 		$generatedBookItems = [];
 
@@ -66,27 +70,21 @@ class BookDropdownHtmlGenerator implements HtmlGeneratorInterface
 
 		return 0 === count( $generatedBookItems )
 			? ''
-			: sprintf(
-				<<<END
-					<div data-purpose="%s" data-component-type="dropdown">
-						<input type="checkbox" id="bookSelector" />
-						<label for="bookSelector">%s</label>
-						<ul>%s</ul>
-					</div>
-				END,
-				ElementPurposes::BOOK_SELECTOR,
+			: ( new DropDownComponent(
+				'div',
+				'bookSelectorId',
+				[],
+				[
+					'purpose' => ElementPurposes::BOOK_SELECTOR
+				],
+				'bookSelector',
+				'Select a book ...',
+				ComponentStyles::DEFAULT,
+				$generatedBookItems,
 				null === $this->currentBook
-					? 'Select a book ...'
+					? null
 					: $this->currentBook->getName(),
-				implode( '', $generatedBookItems )
-			);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function generate(): string
-	{
-		return $this->generateSelectOptions();
+			) )
+				->render();
 	}
 }

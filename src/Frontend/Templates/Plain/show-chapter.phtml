@@ -1,14 +1,24 @@
 <?php declare( strict_types = 1 );
 namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 
+use CodeKandis\HotDoc\Configurations\FrontendConfigurationRegistry;
 use CodeKandis\HotDoc\Environment\Entities\BookEntityInterface;
 use CodeKandis\HotDoc\Environment\Entities\ChapterEntityInterface;
 use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
+use CodeKandis\HotDoc\Environment\Entities\UserEntity;
+use CodeKandis\HotDoc\Environment\Entities\UserEntityInterface;
+use CodeKandis\HotDoc\Frontend\Http\UriBuilders\FrontendUriBuilder;
 use CodeKandis\HotDoc\Frontend\Templates\Generators\BookDropdownHtmlGenerator;
 use CodeKandis\HotDoc\Frontend\Templates\Generators\ChapterListHtmlGenerator;
+use CodeKandis\HotDoc\Frontend\Templates\Generators\SignedInHeaderContentGenerator;
 use ParsedownToC;
 use function file_get_contents;
 use function sprintf;
+
+/**
+ * @var UserEntityInterface $signedInUser
+ */
+$signedInUser = $this->data[ 'signedInUser' ];
 
 /**
  * @var BookEntityCollectionInterface $books
@@ -26,6 +36,16 @@ $requestedBook = $this->data[ 'requestedBook' ];
 $requestedChapter = $this->data[ 'requestedChapter' ];
 
 $parsedownToC = new ParsedownToC();
+
+$headerContent = ( new SignedInHeaderContentGenerator(
+	$signedInUser,
+	new FrontendUriBuilder(
+		FrontendConfigurationRegistry
+			::_()
+			->getUriBuilderConfiguration()
+	)
+) )
+	->generate();
 
 $contentContent = $parsedownToC->text(
 	file_get_contents(

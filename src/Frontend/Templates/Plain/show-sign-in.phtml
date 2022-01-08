@@ -1,0 +1,36 @@
+<?php declare( strict_types = 1 );
+namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
+
+use CodeKandis\HotDoc\Frontend\Templates\Generators\SignedOutHeaderContentGenerator;
+
+/**
+ * @var string $requestUri
+ */
+$requestUri = $this->data[ 'requestUri' ];
+
+$additionalFollowingLinkedStylesheets = [
+	'/assets/'
+];
+
+$headerContent = ( new SignedOutHeaderContentGenerator() )
+	->generate();
+
+$contentContent = <<<END
+	<form data-component-type="form" action="{$requestUri}" method="post" enctype="application/x-www-form-urlencoded">
+		<div>
+			<input name="eMail" type="text"/>
+			<label>E-Mail</label>
+		</div>
+		<div>
+			<input name="password" type="password"/>
+			<label>Password</label>
+		</div>
+		<div>
+			<input type="submit" value="Sign In"/>
+		</div>
+	</form>
+END;
+
+require __DIR__ . '/Common/html-document-header.phtml';
+require __DIR__ . '/Common/html-document-body.phtml';
+require __DIR__ . '/Common/html-document-footer.phtml';
