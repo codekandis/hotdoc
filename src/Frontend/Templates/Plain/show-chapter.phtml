@@ -5,7 +5,6 @@ use CodeKandis\HotDoc\Configurations\FrontendConfigurationRegistry;
 use CodeKandis\HotDoc\Environment\Entities\BookEntityInterface;
 use CodeKandis\HotDoc\Environment\Entities\ChapterEntityInterface;
 use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
-use CodeKandis\HotDoc\Environment\Entities\UserEntity;
 use CodeKandis\HotDoc\Environment\Entities\UserEntityInterface;
 use CodeKandis\HotDoc\Frontend\Http\UriBuilders\FrontendUriBuilder;
 use CodeKandis\HotDoc\Frontend\Templates\Generators\BookDropdownHtmlGenerator;
@@ -47,14 +46,16 @@ $headerContent = ( new SignedInHeaderContentGenerator(
 ) )
 	->generate();
 
-$contentContent = $parsedownToC->text(
-	file_get_contents(
-		sprintf(
-			'%s.md',
-			$this->data[ 'documentPath' ]
-		)
-	)
+$filePath = sprintf(
+	'%s.md',
+	$this->data[ 'documentPath' ]
 );
+if ( true === is_file( $filePath ) )
+{
+	$contentContent = $parsedownToC->text(
+		file_get_contents( $filePath )
+	);
+}
 
 $sidebarLeftContent = sprintf(
 	<<<END
