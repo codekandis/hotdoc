@@ -74,7 +74,11 @@ class BookEntityCollection extends AbstractEntityCollection implements BookEntit
 
 			if ( 0 !== count( $chapter->getSubChapters() ) )
 			{
-				return $this->filterChaptersByCanonicalChapterName( $chapter->getSubChapters(), $canonicalChapterName );
+				$subChapter = $this->filterChaptersByCanonicalChapterName( $chapter->getSubChapters(), $canonicalChapterName );
+				if ( null !== $subChapter )
+				{
+					return $subChapter;
+				}
 			}
 		}
 
