@@ -191,10 +191,6 @@ a:hover {
 	font-size: calc(var(--base-font-size) + 2pt);
 }
 
-#page > .sidebar.left > .content [data-purpose='CHAPTER_SELECTOR'] > li:not(:first-child) {
-	margin-top: 30px;
-}
-
 #page > .sidebar.left > .content {
 	font-style: normal;
 	text-decoration: none;
