@@ -19,22 +19,28 @@ class SignedOutHeaderContentGenerator implements HtmlGeneratorInterface
 	{
 		return sprintf(
 			'<ul>%s</ul>',
-			( new DropDownComponent(
-				'li',
-				'userActionsId',
+			implode(
+				'',
 				[
-					'avatar'
-				],
-				[
-					'purpose' => ElementPurposes::USER_ACTIONS
-				],
-				'userActions',
-				'<img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp"/>',
-				ComponentStyles::NONE,
-				[],
-				null,
-			) )
-				->render()
+					'<li class="logo"><a href="/"><img src="/assets/images/codekandis-logo.svg"/></a></li>',
+					( new DropDownComponent(
+						'li',
+						'userActionsId',
+						[
+							'avatar'
+						],
+						[
+							'purpose' => ElementPurposes::USER_ACTIONS
+						],
+						'userActions',
+						'<img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp"/>',
+						ComponentStyles::NONE,
+						[],
+						null,
+					) )
+						->render()
+				]
+			)
 		);
 	}
 }

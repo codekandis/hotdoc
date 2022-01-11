@@ -34,7 +34,7 @@ class SignedInHeaderContentGenerator implements HtmlGeneratorInterface
 	 */
 	public function __construct( UserEntityInterface $signedInUser, FrontendUriBuilderInterface $frontendUriBuilder )
 	{
-		$this->signedInUser       = $signedInUser;
+		$this->signedInUser = $signedInUser;
 		$this->frontendUriBuilder = $frontendUriBuilder;
 	}
 
@@ -49,30 +49,36 @@ class SignedInHeaderContentGenerator implements HtmlGeneratorInterface
 
 		return sprintf(
 			'<ul>%s</ul>',
-			( new DropDownComponent(
-				'li',
-				'userActionsId',
+			implode(
+				'',
 				[
-					'avatar'
-				],
-				[
-					'purpose' => ElementPurposes::USER_ACTIONS
-				],
-				'userActions',
-				sprintf(
-					'<img src="https://www.gravatar.com/avatar/%s?d=mp"/>',
-					$gravatarHash
-				),
-				ComponentStyles::NONE,
-				[
-					sprintf(
-						'<li><a href="%s"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>',
-						$this->frontendUriBuilder->buildSignoutUri()
-					)
-				],
-				null,
-			) )
-				->render()
+					'<li class="logo"><a href="/"><img src="/assets/images/codekandis-logo.svg"/></a></li>',
+					( new DropDownComponent(
+						'li',
+						'userActionsId',
+						[
+							'avatar'
+						],
+						[
+							'purpose' => ElementPurposes::USER_ACTIONS
+						],
+						'userActions',
+						sprintf(
+							'<img src="https://www.gravatar.com/avatar/%s?d=mp"/>',
+							$gravatarHash
+						),
+						ComponentStyles::NONE,
+						[
+							sprintf(
+								'<li><a href="%s"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>',
+								$this->frontendUriBuilder->buildSignoutUri()
+							)
+						],
+						null,
+					) )
+						->render()
+				]
+			)
 		);
 	}
 }
