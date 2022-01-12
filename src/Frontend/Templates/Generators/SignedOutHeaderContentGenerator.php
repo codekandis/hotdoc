@@ -22,7 +22,7 @@ class SignedOutHeaderContentGenerator implements HtmlGeneratorInterface
 			implode(
 				'',
 				[
-					'<li class="logo"><a href="/"><img src="/assets/images/codekandis-logo.svg"/></a></li>',
+					'<li class="logo"><a href="/"><img src="/assets/images/codekandis-logo.svg"/> <span>HotDoc</span></a></li>',
 					( new DropDownComponent(
 						'li',
 						'userActionsId',
