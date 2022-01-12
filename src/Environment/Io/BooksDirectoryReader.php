@@ -7,11 +7,9 @@ use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollection;
 use CodeKandis\HotDoc\Environment\Entities\Collections\BookEntityCollectionInterface;
 use CodeKandis\HotDoc\Environment\Entities\Collections\ChapterEntityCollection;
 use CodeKandis\HotDoc\Environment\Entities\Collections\ChapterEntityCollectionInterface;
+use CodeKandis\RegularExpressions\RegularExpression;
 use DirectoryIterator;
 use ReflectionException;
-use function array_map;
-use function explode;
-use function implode;
 use function is_dir;
 use function pathinfo;
 use function sort;
@@ -25,6 +23,14 @@ use const PATHINFO_EXTENSION;
  */
 class BooksDirectoryReader implements BooksReaderInterface
 {
+	private const REGEX_DOUBLE_DASH_PATTERN     = '~--~';
+
+	private const REGEX_DOUBLE_DASH_REPLACEMENT = ' - ';
+
+	private const REGEX_SINGLE_DASH_PATTERN     = '~([^ ])-([^ ])~';
+
+	private const REGEX_SINGLE_DASH_REPLACEMENT = '$1 $2';
+
 	/**
 	 * Stores the path of the directory to read.
 	 * @var string
@@ -47,13 +53,12 @@ class BooksDirectoryReader implements BooksReaderInterface
 	 */
 	private function parseCanonicalName( string $canonicalName ): string
 	{
-		return implode(
-			' ',
-			array_map(
-				'ucfirst',
-				explode( '-', $canonicalName )
-			)
-		);
+		$parsedName = ( new RegularExpression( static::REGEX_DOUBLE_DASH_PATTERN ) )
+			->replace( static::REGEX_DOUBLE_DASH_REPLACEMENT, $canonicalName, false );
+		$parsedName = ( new RegularExpression( static::REGEX_SINGLE_DASH_PATTERN ) )
+			->replace( static::REGEX_SINGLE_DASH_REPLACEMENT, $parsedName, false );
+
+		return $parsedName;
 	}
 
 	/**
@@ -119,7 +124,7 @@ class BooksDirectoryReader implements BooksReaderInterface
 				continue;
 			}
 
-			$canonicalName = sprintf(
+			$canonicalName   = sprintf(
 				'%s/%s',
 				$canonicalBaseName,
 				$directoryEntry->getBasename( '.md' )
