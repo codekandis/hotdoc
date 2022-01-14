@@ -32,9 +32,9 @@ class SignedOutHeaderContentGenerator implements HtmlGeneratorInterface
 						[
 							'purpose' => ElementPurposes::USER_ACTIONS
 						],
+						ComponentStyles::NONE,
 						'userActions',
 						'<img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp"/>',
-						ComponentStyles::NONE,
 						[],
 						null,
 					) )

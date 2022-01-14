@@ -31,40 +31,32 @@ abstract class AbstractComponent implements ComponentInterface
 	protected ?array $dataAttributes;
 
 	/**
-	 * Stores the unique ID of the label.
-	 * @var string
-	 */
-	protected string $labelId;
-
-	/**
-	 * Stores the label of the component.
-	 * @var ?string
-	 */
-	protected string $label;
-
-	/**
 	 * Stores the style of the component.
 	 * @var string
 	 */
 	protected string $style;
 
 	/**
+	 * Stores the label of the component.
+	 * @var ?string
+	 */
+	protected ?string $label;
+
+	/**
 	 * Constructor method.
 	 * @param ?string $id The unique ID of the component.
 	 * @param ?string[] $classes The classes of the component.
 	 * @param ?string[] $dataAttributes The data attributes of the component.
-	 * @param string $labelId The unique ID of the label.
-	 * @param ?string $label The label of the component.
 	 * @param string $style The style of the component.
+	 * @param ?string $label The label of the component.
 	 */
-	public function __construct( ?string $id, ?array $classes, ?array $dataAttributes, string $labelId, ?string $label, string $style )
+	public function __construct( ?string $id, ?array $classes, ?array $dataAttributes, string $style, ?string $label )
 	{
 		$this->id             = $id;
 		$this->classes        = $classes;
 		$this->dataAttributes = $dataAttributes;
-		$this->labelId        = $labelId;
-		$this->label          = $label;
 		$this->style          = $style;
+		$this->label          = $label;
 	}
 
 	/**

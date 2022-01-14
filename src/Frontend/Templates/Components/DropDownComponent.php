@@ -9,14 +9,8 @@ use function sprintf;
  * @package codekandis/hotdoc
  * @author Christian Ramelow <info@codekandis.net>
  */
-class DropDownComponent extends AbstractComponent
+class DropDownComponent extends AbstractFormControlComponent
 {
-	/**
-	 * Stores the HTML tag of the component.
-	 * @var string
-	 */
-	protected string $htmlTag;
-
 	/**
 	 * Stores the items of the dropdown.
 	 * @var array
@@ -35,11 +29,10 @@ class DropDownComponent extends AbstractComponent
 	 * @param string[] $items The items of the dropdown.
 	 * @param string $preSelectedItem The pre-selected item.
 	 */
-	public function __construct( string $htmlTag, string $id, array $classes, array $dataAttributes, string $labelId, ?string $label, string $style, array $items, ?string $preSelectedItem )
+	public function __construct( string $htmlTag, ?string $id, array $classes, array $dataAttributes, string $style, ?string $labelId, ?string $label, array $items, ?string $preSelectedItem )
 	{
-		parent::__construct( $id, $classes, $dataAttributes, $labelId, $label, $style );
+		parent::__construct( $htmlTag, $id, $classes, $dataAttributes, $style, $label, $labelId );
 
-		$this->htmlTag         = $htmlTag;
 		$this->items           = $items;
 		$this->preSelectedItem = $preSelectedItem;
 	}
@@ -51,12 +44,12 @@ class DropDownComponent extends AbstractComponent
 	{
 		return sprintf(
 			<<<END
-					<%1\$s%2\$s%3\$s%4\$s data-component-type="%5\$s" data-component-style="%6\$s">
-						<input id="%7\$s" type="checkbox"/>
-						<label for="%7\$s">%8\$s</label>
-						%9\$s
-					</%1\$s>
-				END,
+				<%1\$s%2\$s%3\$s%4\$s data-component-type="%5\$s" data-component-style="%6\$s">
+					<input id="%7\$s" type="checkbox"/>
+					<label for="%7\$s">%8\$s</label>
+					%9\$s
+				</%1\$s>
+			END,
 			$this->htmlTag,
 			$this->renderId(),
 			$this->renderClasses(),

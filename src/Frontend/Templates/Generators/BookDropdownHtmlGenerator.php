@@ -55,11 +55,8 @@ class BookDropdownHtmlGenerator implements HtmlGeneratorInterface
 		{
 			$isSelected           = $book === $this->currentBook;
 			$generatedBookItems[] = sprintf(
-				'<li data-selected-state="%s"%s><a href="%s">%s</a></li>',
+				'<li data-selected-state="%s"><a href="%s">%s</a></li>',
 				$boolToStringConverter->convertTo( $isSelected ),
-				$isSelected
-					? ' selected'
-					: '',
 				sprintf(
 					'/books/%s',
 					$book->getCanonicalName()
@@ -77,9 +74,9 @@ class BookDropdownHtmlGenerator implements HtmlGeneratorInterface
 				[
 					'purpose' => ElementPurposes::BOOK_SELECTOR
 				],
+				ComponentStyles::DEFAULT,
 				'bookSelector',
 				'Select a book ...',
-				ComponentStyles::DEFAULT,
 				$generatedBookItems,
 				null === $this->currentBook
 					? null

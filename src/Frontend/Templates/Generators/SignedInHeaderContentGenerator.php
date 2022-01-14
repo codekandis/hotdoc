@@ -62,12 +62,12 @@ class SignedInHeaderContentGenerator implements HtmlGeneratorInterface
 						[
 							'purpose' => ElementPurposes::USER_ACTIONS
 						],
+						ComponentStyles::NONE,
 						'userActions',
 						sprintf(
 							'<img src="https://www.gravatar.com/avatar/%s?d=mp"/>',
 							$gravatarHash
 						),
-						ComponentStyles::NONE,
 						[
 							sprintf(
 								'<li><a href="%s"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>',

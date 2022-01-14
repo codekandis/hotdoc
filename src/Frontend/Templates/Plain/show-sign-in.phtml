@@ -1,7 +1,13 @@
 <?php declare( strict_types = 1 );
 namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 
+use CodeKandis\HotDoc\Frontend\Templates\Components\ComponentStyles;
+use CodeKandis\HotDoc\Frontend\Templates\Components\FormComponent;
+use CodeKandis\HotDoc\Frontend\Templates\Components\PasswordInputComponent;
+use CodeKandis\HotDoc\Frontend\Templates\Components\SubmitButtonComponent;
+use CodeKandis\HotDoc\Frontend\Templates\Components\TextInputComponent;
 use CodeKandis\HotDoc\Frontend\Templates\Generators\SignedOutHeaderContentGenerator;
+use CodeKandis\Tiphy\Http\Requests\Methods;
 
 /**
  * @var string $requestUri
@@ -15,24 +21,22 @@ $additionalFollowingLinkedStylesheets = [
 $headerContent = ( new SignedOutHeaderContentGenerator() )
 	->generate();
 
-$contentContent = <<<END
-	<form id="signIn" data-component-type="FORM" data-component-style="DEFAULT" action="{$requestUri}" method="post" enctype="application/x-www-form-urlencoded">
-	    <div data-component-subtype="HEADER">
-		    <h2>Sign In</h2>
-	    </div>
-	    <div data-component-subtype="BODY">
-			<div data-component-type="INPUT_TEXT" data-component-style="DEFAULT">
-				<input name="eMail" type="text" placeholder="E-Mail"/>
-			</div>
-			<div data-component-type="INPUT_PASSWORD" data-component-style="DEFAULT">
-				<input name="password" type="password" placeholder="Password"/>
-			</div>
-			<div data-component-type="INPUT_SUBMIT" data-component-style="DEFAULT">
-				<input class="color-green" type="submit" value="Sign In"/>
-			</div>
-		</div>
-	</form>
-END;
+$contentContent = ( new FormComponent(
+	'signIn',
+	[],
+	[],
+	ComponentStyles::DEFAULT,
+	'Sign In',
+	'h2',
+	$requestUri,
+	Methods::POST,
+	[
+		new TextInputComponent( 'div', null, [], [], ComponentStyles::DEFAULT, null, null, 'eMail', 'E-Mail', null ),
+		new PasswordInputComponent( 'div', null, [], [], ComponentStyles::DEFAULT, null, null, 'password', 'Password', null ),
+		new SubmitButtonComponent( 'div', null, [ 'color-orange' ], [], ComponentStyles::DEFAULT, null, null, 'Sign In' )
+	]
+) )
+	->render();
 
 require __DIR__ . '/Common/html-document-header.phtml';
 require __DIR__ . '/Common/html-document-body.phtml';

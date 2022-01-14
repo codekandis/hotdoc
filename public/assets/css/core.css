@@ -201,7 +201,6 @@ a:hover {
 
 #page > .sidebar.left > .content [data-purpose='BOOK_SELECTOR'] {
 	display: block;
-	margin-bottom: 20px;
 	width: 100%;
 	font-size: calc(var(--base-font-size) + 2pt);
 }
