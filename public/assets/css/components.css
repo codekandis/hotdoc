@@ -33,7 +33,7 @@
 [data-component-type='FORM'][data-component-style='DEFAULT'] > [data-component-subtype="BODY"] {
 	padding-top: 1.5rem;
 	padding-bottom: 0.3rem;
-	background-color: #ffffff;
+	background-color: rgba(255, 255, 255, 1);
 }
 
 [data-component-type='FORM'][data-component-style='DEFAULT'] > [data-component-subtype="BODY"] * {
@@ -47,8 +47,9 @@
 [data-component-type='DROPDOWN'][data-component-style='DEFAULT'],
 [data-component-type='BUTTON'][data-component-style='DEFAULT'],
 [data-component-type='SUBMIT_BUTTON'][data-component-style='DEFAULT'] {
-	display: block;
+	display: inline-block;
 	margin-bottom: 1rem;
+	width: 100%;
 }
 
 [data-component-type='TEXT_INPUT'][data-component-style='DEFAULT'] > input,
@@ -65,14 +66,66 @@
 [data-component-type='TEXTAREA'][data-component-style='DEFAULT'] > input,
 [data-component-type='DROPDOWN'][data-component-style='DEFAULT'] > label {
 	box-sizing: border-box;
-	display: block;
+	display: inline-block;
 	padding: 0.3rem 0.4rem 0.4rem 0.4rem;
 	width: 100%;
+	line-height: var(--base-line-height);
 	background-color: rgba(255, 255, 255, 1);
 	border-style: solid;
 	border-width: 0.1rem;
 	border-color: var(--codekandis-color-light-gray);
-	z-index: 1000;
+}
+
+[data-component-type='TEXT_INPUT'][data-component-style='DEFAULT'] > label,
+[data-component-type='PASSWORD_INPUT'][data-component-style='DEFAULT'] > label {
+	line-height: var(--base-line-height);
+	cursor: pointer;
+}
+
+[data-component-type='TEXT_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_LEFT"] > label,
+[data-component-type='TEXT_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_RIGHT"] > label,
+[data-component-type='PASSWORD_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_LEFT"] > label,
+[data-component-type='PASSWORD_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_RIGHT"] > label {
+	box-sizing: border-box;
+	display: inline-block;
+	position: absolute;
+	padding: 0.3rem 0 0.4rem 0;
+	text-align: center;
+	font-family: 'Font Awesome 5 Free';
+	font-size: calc(var(--base-font-size) + 2pt);
+	width: 2.2rem;
+	line-height: 23px;
+	background-color: var(--codekandis-color-lighter-gray);
+	border-style: solid;
+	border-width: 0.1rem;
+	border-color: var(--codekandis-color-light-gray);
+}
+
+[data-component-type='TEXT_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_LEFT"] > input,
+[data-component-type='TEXT_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_RIGHT"] > input,
+[data-component-type='PASSWORD_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_LEFT"] > input,
+[data-component-type='PASSWORD_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_RIGHT"] > input {
+}
+
+[data-component-type='TEXT_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_LEFT"] > label,
+[data-component-type='PASSWORD_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_LEFT"] > label {
+	border-radius: 0.3rem 0 0 0.3rem;
+}
+
+[data-component-type='TEXT_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_LEFT"] > input,
+[data-component-type='PASSWORD_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_LEFT"] > input {
+	padding: 0.3rem 0.4rem 0.4rem 2.6rem;
+}
+
+[data-component-type='TEXT_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_RIGHT"] > label,
+[data-component-type='PASSWORD_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_RIGHT"] > label {
+	margin-left: -2.2rem;
+	border-radius: 0 0.3rem 0.3rem 0;
+}
+
+[data-component-type='TEXT_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_RIGHT"] > input,
+[data-component-type='PASSWORD_INPUT'][data-component-style='DEFAULT'][data-label-position="ATTACHED_RIGHT"] > input {
+	padding: 0.3rem 2.6rem 0.4rem 0.4rem;
 }
 
 [data-component-type='DROPDOWN'] {

@@ -3,6 +3,7 @@ namespace CodeKandis\HotDoc\Frontend\Templates\Plain\Common;
 
 use CodeKandis\HotDoc\Frontend\Templates\Components\ComponentStyles;
 use CodeKandis\HotDoc\Frontend\Templates\Components\FormComponent;
+use CodeKandis\HotDoc\Frontend\Templates\Components\LabelTypes;
 use CodeKandis\HotDoc\Frontend\Templates\Components\PasswordInputComponent;
 use CodeKandis\HotDoc\Frontend\Templates\Components\SubmitButtonComponent;
 use CodeKandis\HotDoc\Frontend\Templates\Components\TextInputComponent;
@@ -31,8 +32,8 @@ $contentContent = ( new FormComponent(
 	$requestUri,
 	Methods::POST,
 	[
-		new TextInputComponent( 'div', null, [], [], ComponentStyles::DEFAULT, null, null, 'eMail', 'E-Mail', null ),
-		new PasswordInputComponent( 'div', null, [], [], ComponentStyles::DEFAULT, null, null, 'password', 'Password', null ),
+		new TextInputComponent( 'div', 'eMail', [], [], ComponentStyles::DEFAULT, '', LabelTypes::ATTACHED_LEFT, ['fas', 'fa-user'], 'eMail', 'E-Mail', null ),
+		new PasswordInputComponent( 'div', 'password', [], [], ComponentStyles::DEFAULT, '', LabelTypes::ATTACHED_LEFT, ['fas', 'fa-lock'], 'password', 'Password', null, null ),
 		new SubmitButtonComponent( 'div', null, [ 'color-orange' ], [], ComponentStyles::DEFAULT, null, null, 'Sign In' )
 	]
 ) )

@@ -208,12 +208,12 @@ a:hover {
 #page > .sidebar.left > .content {
 	font-style: normal;
 	text-decoration: none;
-	color: #ffffff;
+	color: rgba(255, 255, 255, 1);
 }
 
 #page > .sidebar.left > .content [data-purpose='CHAPTER_SELECTOR'] li a {
 	padding-right: 5px;
-	color: #ffffff;
+	color: rgba(255, 255, 255, 1);
 	border-right-style: solid;
 	border-right-width: 2px;
 	border-right-color: transparent;

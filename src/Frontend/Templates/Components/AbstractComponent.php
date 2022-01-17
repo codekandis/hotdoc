@@ -79,7 +79,7 @@ abstract class AbstractComponent implements ComponentInterface
 	 */
 	protected function renderClasses(): ?string
 	{
-		return null === $this->classes || 0 === count( $this->classes )
+		return null === $this->classes || [] === $this->classes
 			? null
 			: sprintf(
 				' class="%s"',
@@ -96,7 +96,7 @@ abstract class AbstractComponent implements ComponentInterface
 	 */
 	protected function renderDataAttributes(): ?string
 	{
-		return null === $this->dataAttributes || 0 === count( $this->dataAttributes )
+		return null === $this->dataAttributes || [] === $this->dataAttributes
 			? null
 			: implode(
 				'',
