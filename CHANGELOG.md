@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [keep a changelog][xtlink-keep-a-changelog]
 and this project adheres to [Semantic Versioning 2.0.0][xtlink-semantic-versioning].
 
+## [0.1.2] - 2022-05-03
+
+### Changed
+
+* bumped composer package dependencies
+
+[0.1.2]: https://github.com/codekandis/hotdoc/compare/0.1.1..0.1.2
+
+---
 ## [0.1.1] - 2022-01-04
 
 ### Added
@@ -19,8 +28,8 @@ and this project adheres to [Semantic Versioning 2.0.0][xtlink-semantic-versioni
 ### Added
 
 * basic implementation
-  * selecting and rendering books and documents
-  * syntax highlighting support
+    * selecting and rendering books and documents
+    * syntax highlighting support
 * `composer.json` / `composer.lock`
 * `CODE_OF_CONDUCT.md`
 * `LICENSE`
